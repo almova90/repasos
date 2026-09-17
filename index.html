@@ -9,9 +9,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="apple-mobile-web-app-title" content="Repasos" />
 <link rel="manifest" href="./manifest.webmanifest" />
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
-<link rel="apple-touch-icon" href="./icon-192.png" />
-<title>Repasos — v0.14.0</title>
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192-v2.png" />
+<link rel="apple-touch-icon" href="./icon-192-v2.png" />
+<title>Repasos — v0.15.0</title>
 <style>
 :root{
   --bg:#f4f5f8; --surface:#ffffff; --surface-2:#f0f1f4; --ink:#1b2030; --muted:#747887;
@@ -105,11 +105,14 @@ button:focus:not(:focus-visible){outline:none}
 /* Settings */
 .settings-card{overflow:hidden;margin-bottom:14px}
 .settings-row{display:flex;align-items:center;padding:14px 15px;border-bottom:1px solid var(--line);gap:14px}.settings-row:last-child{border-bottom:0}
-.settings-label{flex:1}.settings-label strong{display:block;font-size:13px}
+.settings-label{flex:1;min-width:0}.settings-label strong{display:block;font-size:13px}.settings-label small{display:block;margin-top:3px;color:var(--muted);font-size:9px;line-height:1.25}
 .segment{display:flex;position:relative;background:var(--surface-2);padding:3px;border-radius:12px;gap:2px;isolation:isolate}.segment:before{content:"";position:absolute;z-index:0;left:0;top:3px;height:calc(100% - 6px);width:var(--seg-width,0px);border-radius:9px;background:var(--surface);box-shadow:0 2px 8px rgba(20,22,30,.08);transform:translateX(var(--seg-left,0px));transition:transform .22s cubic-bezier(.2,.8,.22,1),width .22s cubic-bezier(.2,.8,.22,1);pointer-events:none}.segment.segment-initial:before{transition:none!important}.seg-btn{position:relative;z-index:1;padding:7px 9px;border-radius:9px;background:transparent;color:var(--muted);font-size:11px;cursor:pointer;transition:color .18s ease}.seg-btn.active{background:transparent;color:var(--ink);box-shadow:none}
 .theme-dots{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.theme-dot{width:27px;height:27px;border-radius:50%;border:3px solid transparent;outline:1px solid var(--line);cursor:pointer}.theme-dot.active{border-color:var(--surface);outline:2px solid var(--accent)}
 .theme-editor{padding:14px 15px;background:var(--surface-2);border-bottom:1px solid var(--line)}.theme-editor-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:12px;gap:12px}.theme-name-edit{max-width:65%;padding:3px 0;background:transparent;color:inherit;font-weight:inherit;border:0;cursor:text;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.theme-name-input{width:min(65%,190px);border:0;border-bottom:1px solid currentColor;background:transparent;color:inherit;font:inherit;font-weight:inherit;text-align:right;outline:none;padding:3px 0}.theme-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.color-field{display:grid;gap:6px;color:var(--muted);font-size:10px;text-align:center}.color-swatch{width:100%;height:34px;border:1px solid color-mix(in srgb,var(--ink) 10%,transparent);border-radius:9px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}.color-swatch.active{outline:2px solid var(--accent);outline-offset:2px}.color-picker{grid-column:1/-1;margin-top:3px;padding:11px;border-radius:14px;background:var(--surface);box-shadow:0 10px 28px rgba(18,20,30,.12)}.color-spectrum{height:150px;border-radius:11px;position:relative;cursor:crosshair;touch-action:none;background:linear-gradient(to top,#000,transparent),linear-gradient(to right,#fff,transparent),hsl(var(--picker-hue),100%,50%)}.color-cursor{position:absolute;width:16px;height:16px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px rgba(0,0,0,.5);transform:translate(-50%,-50%);pointer-events:none}.hue-track{height:15px;margin-top:11px;border-radius:999px;position:relative;cursor:ew-resize;touch-action:none;background:linear-gradient(to right,#f00,#ff0,#0f0,#0ff,#00f,#f0f,#f00)}.hue-cursor{position:absolute;top:50%;width:18px;height:23px;border:2px solid #fff;border-radius:7px;box-shadow:0 0 0 1px rgba(0,0,0,.35);transform:translate(-50%,-50%);pointer-events:none}.theme-accept{width:100%;margin-top:12px;padding:10px;border-radius:11px;background:var(--accent);color:#fff;font-size:12px;font-weight:760;cursor:pointer}
 .switch{width:45px;height:26px;border-radius:999px;background:#c9ccd4;padding:3px;cursor:pointer;transition:.18s}.switch i{display:block;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.18s}.switch.on{background:var(--accent)}.switch.on i{transform:translateX(19px)}
+.dynamic-theme-settings{background:var(--surface-2);border-bottom:1px solid var(--line)}.dynamic-theme-settings .settings-row{border-color:color-mix(in srgb,var(--ink) 7%,transparent)}
+.settings-select,.time-control{min-width:118px;max-width:152px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:11px;padding:8px 10px;outline:none;font-size:11px}.time-control{min-width:104px;max-width:112px;text-align:center}.settings-select:focus,.time-control:focus{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 13%,transparent)}
+.location-refresh{white-space:nowrap}.fullscreen-note{padding:0 15px 13px;color:var(--muted);font-size:9px;line-height:1.35}
 .file-actions,.data-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:14px 14px 9px}.data-actions{padding-top:0;padding-bottom:14px}.secondary{padding:12px 10px;border-radius:13px;background:var(--surface-2);color:var(--ink);font-weight:700;cursor:pointer;font-size:12px}.secondary:active{transform:scale(.98)}.danger-secondary{padding:12px 10px;border-radius:13px;background:#d94b54;color:#fff;font-weight:760;cursor:pointer;font-size:12px}.danger-secondary:active{transform:scale(.98)}#resetDatabaseBtn{background:#d94b54;color:#fff}
 
 /* Stats */
@@ -272,12 +275,14 @@ let activeColorField = null;
 let themeDraft = null;
 let settingsMotions = [];
 
+const THEME_KEYS=['violet','ink','teal','sand','aurora'];
 const defaultStatsCharts={reviews:{scale:'linear',step:1,base:2,count:15,fontSize:2},age:{scale:'power',step:1,base:2,count:10,fontSize:2}};
-const defaultSettings = { theme:'violet', layout:'tall', nextVisibility:'subtle', textSize:3, showButtons:true, tintDrag:true, transparency:false, showAlwaysUpToDate:false, customThemes:{}, themeNames:{}, statsCharts:defaultStatsCharts };
+const defaultSettings = { theme:'violet', layout:'tall', nextVisibility:'subtle', textSize:3, showButtons:true, tintDrag:true, transparency:false, fullscreen:false, dynamicTheme:false, themeScheduleMode:'auto', dayTheme:'violet', nightTheme:'ink', dayStart:'07:30', nightStart:'20:30', dynamicLocation:null, showAlwaysUpToDate:false, customThemes:{}, themeNames:{}, statsCharts:defaultStatsCharts };
 let settings = {...defaultSettings, ...JSON.parse(localStorage.getItem('repaso-settings')||'{}')};
 settings.customThemes=settings.customThemes&&typeof settings.customThemes==='object'?settings.customThemes:{};
 settings.themeNames=settings.themeNames&&typeof settings.themeNames==='object'?settings.themeNames:{};
 normalizeStatsChartSettings();
+normalizeDynamicThemeSettings();
 if(settings.layout==='plain')settings.layout='none';
 
 const baseThemeColors={
@@ -295,11 +300,46 @@ function normalizeStatsChartSettings(){
   settings.statsCharts={reviews:{...defaultStatsCharts.reviews,...(source.reviews||{})},age:{...defaultStatsCharts.age,...(source.age||{})}};
   for(const key of ['reviews','age']){const config=settings.statsCharts[key];config.scale=config.scale==='power'?'power':'linear';config.step=Math.max(1,Math.round(Number(config.step)||1));config.base=Math.min(2,Math.max(1.1,Math.round((Number(config.base)||2)*10)/10));config.count=Math.min(20,Math.max(10,Math.round(Number(config.count)||defaultStatsCharts[key].count)));config.fontSize=Math.min(5,Math.max(1,Math.round(Number(config.fontSize)||2)));}
 }
+function normalizeDynamicThemeSettings(){
+  const validTime=(value,fallback)=>/^([01]\d|2[0-3]):[0-5]\d$/.test(String(value||''))?String(value):fallback;
+  settings.fullscreen=Boolean(settings.fullscreen);
+  settings.dynamicTheme=Boolean(settings.dynamicTheme);
+  settings.themeScheduleMode=settings.themeScheduleMode==='manual'?'manual':'auto';
+  settings.dayTheme=THEME_KEYS.includes(settings.dayTheme)?settings.dayTheme:'violet';
+  settings.nightTheme=THEME_KEYS.includes(settings.nightTheme)?settings.nightTheme:'ink';
+  settings.dayStart=validTime(settings.dayStart,'07:30');
+  settings.nightStart=validTime(settings.nightStart,'20:30');
+  const loc=settings.dynamicLocation;
+  settings.dynamicLocation=loc&&Number.isFinite(Number(loc.lat))&&Number.isFinite(Number(loc.lon))?{lat:Math.max(-89.9,Math.min(89.9,Number(loc.lat))),lon:Math.max(-180,Math.min(180,Number(loc.lon)))}:null;
+}
+const SOLAR_RAD=Math.PI/180,SOLAR_DAY=86400000,SOLAR_J1970=2440588,SOLAR_J2000=2451545,SOLAR_J0=.0009;
+function toJulian(date){return date.valueOf()/SOLAR_DAY-.5+SOLAR_J1970;}
+function fromJulian(j){return new Date((j+.5-SOLAR_J1970)*SOLAR_DAY);}
+function solarMeanAnomaly(d){return SOLAR_RAD*(357.5291+.98560028*d);}
+function eclipticLongitude(m){const c=SOLAR_RAD*(1.9148*Math.sin(m)+.02*Math.sin(2*m)+.0003*Math.sin(3*m));return m+c+SOLAR_RAD*102.9372+Math.PI;}
+function solarDeclination(l){return Math.asin(Math.sin(l)*Math.sin(SOLAR_RAD*23.4397));}
+function solarTimes(date,lat,lon){
+  const lw=-lon*SOLAR_RAD,phi=lat*SOLAR_RAD,d=toJulian(date)-SOLAR_J2000,n=Math.round(d-SOLAR_J0-lw/(2*Math.PI)),ds=SOLAR_J0+lw/(2*Math.PI)+n,m=solarMeanAnomaly(ds),l=eclipticLongitude(m),dec=solarDeclination(l),noon=SOLAR_J2000+ds+.0053*Math.sin(m)-.0069*Math.sin(2*l),h=-.833*SOLAR_RAD,cosW=(Math.sin(h)-Math.sin(phi)*Math.sin(dec))/(Math.cos(phi)*Math.cos(dec));
+  if(cosW<-1||cosW>1)return null;
+  const w=Math.acos(cosW),setApprox=SOLAR_J0+(w+lw)/(2*Math.PI)+n,set=SOLAR_J2000+setApprox+.0053*Math.sin(m)-.0069*Math.sin(2*l);
+  return {sunrise:fromJulian(noon-(set-noon)),sunset:fromJulian(set)};
+}
+function minutesFromClock(value){const [h,m]=String(value).split(':').map(Number);return h*60+m;}
+function isNightNow(now=new Date()){
+  if(settings.themeScheduleMode==='manual'){
+    const minute=now.getHours()*60+now.getMinutes(),day=minutesFromClock(settings.dayStart),night=minutesFromClock(settings.nightStart),isDay=day<night?minute>=day&&minute<night:minute>=day||minute<night;
+    return !isDay;
+  }
+  const loc=settings.dynamicLocation||{lat:39.47,lon:-.38},times=solarTimes(now,loc.lat,loc.lon);
+  return times?now<times.sunrise||now>=times.sunset:now.getHours()<7||now.getHours()>=20;
+}
+function activeThemeName(){return settings.dynamicTheme?(isNightNow()?settings.nightTheme:settings.dayTheme):settings.theme;}
 function applyTheme(){
-  document.body.dataset.theme=settings.theme;
+  const themeName=activeThemeName();
+  document.body.dataset.theme=themeName;
   document.body.dataset.transparency=settings.transparency?'on':'off';
   for(const name of ['--bg','--game-bg','--surface','--game-card','--game-card-solid','--scroll-active-card','--accent','--header','--header-2'])document.body.style.removeProperty(name);
-  const custom=settings.customThemes?.[settings.theme];
+  const custom=settings.customThemes?.[themeName];
   if(custom){
     document.body.style.setProperty('--bg',custom.background);
     document.body.style.setProperty('--game-bg',custom.background);
@@ -326,6 +366,19 @@ function applyTheme(){
   const meta=$('meta[name="theme-color"]'); const c=getComputedStyle(document.body).getPropertyValue('--header').trim(); if(meta&&c) meta.content=c;
 }
 applyTheme();
+setInterval(()=>{if(settings.dynamicTheme)applyTheme();},60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)applyTheme();});
+async function requestDynamicLocation(){
+  if(!navigator.geolocation){settings.dynamicLocation=null;saveSettings();showToast('Se usará Valencia como referencia');return false;}
+  return new Promise(resolve=>navigator.geolocation.getCurrentPosition(position=>{settings.dynamicLocation={lat:Number(position.coords.latitude.toFixed(2)),lon:Number(position.coords.longitude.toFixed(2))};saveSettings();showToast('Ubicación aproximada actualizada');resolve(true);},()=>{settings.dynamicLocation=null;saveSettings();showToast('Se usará Valencia como referencia');resolve(false);},{enableHighAccuracy:false,maximumAge:21600000,timeout:8000}));
+}
+async function setFullscreenMode(enabled){
+  try{
+    if(enabled&&!document.fullscreenElement&&document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen({navigationUI:'hide'});
+    else if(!enabled&&document.fullscreenElement&&document.exitFullscreen)await document.exitFullscreen();
+  }catch{}
+}
+document.addEventListener('pointerdown',()=>{if(settings.fullscreen&&!document.fullscreenElement)setFullscreenMode(true);},{once:true,capture:true});
 
 // Nothing outside the application should receive its clicks. Target handlers
 // still run normally; propagation stops only after they have done so.
@@ -349,15 +402,6 @@ async function clearItems(){ const db=await dbp; return new Promise((resolve,rej
 
 // This release intentionally starts with a clean database for testing. The
 // marker makes the reset one-shot, so items added afterwards are preserved.
-async function clearDatabaseForRelease(){
-  const key='repaso-empty-database-v10';
-  if(localStorage.getItem(key))return;
-  await clearItems();
-  localStorage.removeItem('repaso-usage');
-  localStorage.setItem('repaso-demo-seeded-100-v1','1');
-  localStorage.setItem(key,'1');
-}
-
 function uuid(){ return crypto.randomUUID ? crypto.randomUUID() : 'i-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2); }
 function newItem(text,hint=''){ const now=Date.now(); return {id:uuid(),text:String(text||'').trim().slice(0,180),hint:String(hint||'').trim().slice(0,300),createdAt:now,updatedAt:now,yes:0,nope:0,streak:0,lapses:0,lastSeenAt:null,lastAnswer:null,dueAt:now,intervalDays:0,stage:'new',learningStep:0,relearning:false,history:[]}; }
 async function addTexts(entries){
@@ -376,8 +420,9 @@ async function seedDemoItems(){
 }
 async function installInitialDatabase(){
   const key='repaso-initial-database-v11';if(localStorage.getItem(key))return;
+  const existing=await getAll();if(existing.length){localStorage.setItem(key,'1');return;}
   const source='Schleiermacher, Novalis, sicofante, karst, Parerga y Paralipómena, lobezno((Gulo gulo, glotón)), Luciano de Samosata, Baja Edad Media((XIV-XV)), Alta Edad Media((V-X)), Plena Edad Media((XI-XIII)), religiones abrahámicas, plumaria o arte plumario, enclave, aceptabilidad política((ventana de Overton)), emanatismo, Boecio (obra), autotrascendencia, sentimiento oceánico, experiencia cumbre, experiencia meseta, experiencias de Maslow, estado de flujo, punto más profundo((Abismo de Challenger)), tabla optométrica((optotipo)), testaferro, jofaina, monomaníaco, vox populi, delta y estuario, desembocaduras, mamposteria, heap, índice (En), origen etimológico((etimón)), pietismo, no viscoso((inviscido)), abigarrado, atrezo (sin) ((utilería)), frame mogging, min-maxing, bar japonés ((izakaya)), vagueposting, nomikai, advección, Marislio Ficino, mampostería, ensenada, cala (sin)((ensenada)), entrenamiento funcional, barre/barré, hiperfijación negativa ((monomanía)), jofaina, aguamanil';
-  await clearItems();await addTexts(parseBulkElements(source));localStorage.setItem(key,'1');
+  await addTexts(parseBulkElements(source));localStorage.setItem(key,'1');
 }
 
 // ---------- Usage & stats ----------
@@ -835,17 +880,30 @@ function playSettingsMotions(){
     }));
   });
 }
+function themeOptions(selected){return THEME_KEYS.map(name=>`<option value="${name}" ${selected===name?'selected':''}>${esc(themeDisplayName(name))}</option>`).join('');}
+function dynamicThemeMarkup(){
+  if(!settings.dynamicTheme)return '';
+  const automatic=settings.themeScheduleMode==='auto';
+  const locationNote=settings.dynamicLocation?'Ubicación aproximada detectada':'Sin permiso de ubicación se usará Valencia como referencia';
+  return `<div class="dynamic-theme-settings"><div class="settings-row"><div class="settings-label"><strong>Horario</strong><small>Automático usa amanecer y anochecer</small></div><div class="segment"><button type="button" class="seg-btn ${automatic?'active':''}" data-schedule-mode="auto">Automático</button><button type="button" class="seg-btn ${!automatic?'active':''}" data-schedule-mode="manual">Manual</button></div></div><div class="settings-row"><div class="settings-label"><strong>Tema de día</strong></div><select class="settings-select" id="dayThemeSelect" aria-label="Tema de día">${themeOptions(settings.dayTheme)}</select></div><div class="settings-row"><div class="settings-label"><strong>Tema de noche</strong></div><select class="settings-select" id="nightThemeSelect" aria-label="Tema de noche">${themeOptions(settings.nightTheme)}</select></div>${automatic?`<div class="settings-row"><div class="settings-label"><strong>Ubicación</strong><small>${locationNote}</small></div><button type="button" class="secondary location-refresh" id="refreshLocationBtn">Actualizar</button></div>`:`<div class="settings-row"><div class="settings-label"><strong>Empieza el día</strong></div><input class="time-control" id="dayStartInput" type="time" value="${settings.dayStart}" aria-label="Hora de inicio del día"></div><div class="settings-row"><div class="settings-label"><strong>Empieza la noche</strong></div><input class="time-control" id="nightStartInput" type="time" value="${settings.nightStart}" aria-label="Hora de inicio de la noche"></div>`}</div>`;
+}
 async function renderSettings(){
   const sizeButtons=[1,2,3,4,5].map(n=>`<button type="button" class="seg-btn ${Number(settings.textSize)===n?'active':''}" data-text-size="${n}">${n}</button>`).join('');
-  app.innerHTML=`<div class="view">${subhead('Ajustes')}<div class="page-pad"><div class="section-title"><h2>Apariencia</h2></div><div class="panel settings-card"><div class="settings-row"><div class="settings-label"><strong>Tarjeta</strong></div><div class="segment"><button type="button" class="seg-btn ${settings.layout==='none'?'active':''}" data-layout="none">No</button><button type="button" class="seg-btn ${settings.layout==='tall'?'active':''}" data-layout="tall">Alta</button><button type="button" class="seg-btn ${settings.layout==='compact'?'active':''}" data-layout="compact">Compacta</button><button type="button" class="seg-btn ${settings.layout==='minimal'?'active':''}" data-layout="minimal">Mínima</button></div></div><div class="settings-row"><div class="settings-label"><strong>Siguientes</strong></div><div class="segment"><button type="button" class="seg-btn ${settings.nextVisibility==='none'?'active':''}" data-next="none">No</button><button type="button" class="seg-btn ${settings.nextVisibility==='drag'?'active':''}" data-next="drag">Al mover</button><button type="button" class="seg-btn ${settings.nextVisibility==='subtle'?'active':''}" data-next="subtle">Sutil</button><button type="button" class="seg-btn ${settings.nextVisibility==='cascade'?'active':''}" data-next="cascade">Cascada</button></div></div><div class="settings-row"><div class="settings-label"><strong>Texto</strong></div><div class="segment">${sizeButtons}</div></div><div class="settings-row"><div class="settings-label"><strong>Tema</strong></div><div class="theme-dots">${themeDot('violet')}${themeDot('ink')}${themeDot('teal')}${themeDot('sand')}${themeDot('aurora')}</div></div>${themeEditorMarkup()}<div class="settings-row"><div class="settings-label"><strong>Botones</strong></div><button type="button" class="switch ${settings.showButtons?'on':''}" data-toggle="showButtons"><i></i></button></div><div class="settings-row"><div class="settings-label"><strong>Tinte al arrastrar</strong></div><button type="button" class="switch ${settings.tintDrag?'on':''}" data-toggle="tintDrag"><i></i></button></div><div class="settings-row"><div class="settings-label"><strong>Transparencia</strong></div><button type="button" class="switch ${settings.transparency?'on':''}" data-toggle="transparency"><i></i></button></div></div><div class="section-title"><h2>Datos</h2></div><div class="panel settings-card"><div class="file-actions"><button type="button" class="secondary" id="exportBtn">Exportar JSON</button><button type="button" class="secondary" id="importBtn">Importar JSON</button></div><div class="data-actions"><button type="button" class="secondary" id="resetDatabaseBtn">Resetear la base de datos</button><button type="button" class="danger-secondary" id="deleteDatabaseBtn">Borrar la base de datos</button></div></div><div class="section-title"><h2>Desarrolladores</h2></div><div class="panel settings-card"><div class="settings-row"><div class="settings-label"><strong>Mostrar siempre «¡Estás al día!»</strong></div><button type="button" class="switch ${settings.showAlwaysUpToDate?'on':''}" data-toggle="showAlwaysUpToDate"><i></i></button></div></div></div></div>`;
-  bindBack(settingsReturnView);$$('[data-layout]').forEach(b=>safeClick(b,()=>{rememberSegmentMotion(b,'data-layout');settings.layout=b.dataset.layout;saveSettings();renderSettings();}));$$('[data-next]').forEach(b=>safeClick(b,()=>{rememberSegmentMotion(b,'data-next');settings.nextVisibility=b.dataset.next;saveSettings();renderSettings();}));$$('[data-text-size]').forEach(b=>safeClick(b,()=>{rememberSegmentMotion(b,'data-text-size');settings.textSize=Number(b.dataset.textSize);saveSettings();renderSettings();}));$$('[data-toggle]').forEach(b=>safeClick(b,()=>{const scrollTop=$('.view')?.scrollTop||0;rememberSwitchMotion(b);settings[b.dataset.toggle]=!settings[b.dataset.toggle];saveSettings();renderSettings();requestAnimationFrame(()=>{const view=$('.view');if(view)view.scrollTop=scrollTop;});}));
+  app.innerHTML=`<div class="view">${subhead('Ajustes')}<div class="page-pad"><div class="section-title"><h2>Apariencia</h2></div><div class="panel settings-card"><div class="settings-row"><div class="settings-label"><strong>Tarjeta</strong></div><div class="segment"><button type="button" class="seg-btn ${settings.layout==='none'?'active':''}" data-layout="none">No</button><button type="button" class="seg-btn ${settings.layout==='tall'?'active':''}" data-layout="tall">Alta</button><button type="button" class="seg-btn ${settings.layout==='compact'?'active':''}" data-layout="compact">Compacta</button><button type="button" class="seg-btn ${settings.layout==='minimal'?'active':''}" data-layout="minimal">Mínima</button></div></div><div class="settings-row"><div class="settings-label"><strong>Siguientes</strong></div><div class="segment"><button type="button" class="seg-btn ${settings.nextVisibility==='none'?'active':''}" data-next="none">No</button><button type="button" class="seg-btn ${settings.nextVisibility==='drag'?'active':''}" data-next="drag">Al mover</button><button type="button" class="seg-btn ${settings.nextVisibility==='subtle'?'active':''}" data-next="subtle">Sutil</button><button type="button" class="seg-btn ${settings.nextVisibility==='cascade'?'active':''}" data-next="cascade">Cascada</button></div></div><div class="settings-row"><div class="settings-label"><strong>Texto</strong></div><div class="segment">${sizeButtons}</div></div><div class="settings-row"><div class="settings-label"><strong>Tema</strong></div><div class="theme-dots">${themeDot('violet')}${themeDot('ink')}${themeDot('teal')}${themeDot('sand')}${themeDot('aurora')}</div></div>${themeEditorMarkup()}<div class="settings-row"><div class="settings-label"><strong>Tema según la hora</strong><small>Cambia automáticamente entre día y noche</small></div><button type="button" class="switch ${settings.dynamicTheme?'on':''}" data-toggle="dynamicTheme"><i></i></button></div>${dynamicThemeMarkup()}<div class="settings-row"><div class="settings-label"><strong>Botones</strong></div><button type="button" class="switch ${settings.showButtons?'on':''}" data-toggle="showButtons"><i></i></button></div><div class="settings-row"><div class="settings-label"><strong>Tinte al arrastrar</strong></div><button type="button" class="switch ${settings.tintDrag?'on':''}" data-toggle="tintDrag"><i></i></button></div><div class="settings-row"><div class="settings-label"><strong>Transparencia</strong></div><button type="button" class="switch ${settings.transparency?'on':''}" data-toggle="transparency"><i></i></button></div><div class="settings-row"><div class="settings-label"><strong>Pantalla completa</strong><small>Oculta las barras del sistema mientras está activa</small></div><button type="button" class="switch ${settings.fullscreen?'on':''}" data-toggle="fullscreen"><i></i></button></div>${settings.fullscreen?'<div class="fullscreen-note">Android puede volver a mostrar temporalmente sus barras al deslizar desde un borde.</div>':''}</div><div class="section-title"><h2>Datos</h2></div><div class="panel settings-card"><div class="file-actions"><button type="button" class="secondary" id="exportBtn">Exportar JSON</button><button type="button" class="secondary" id="importBtn">Importar JSON</button></div><div class="data-actions"><button type="button" class="secondary" id="resetDatabaseBtn">Resetear la base de datos</button><button type="button" class="danger-secondary" id="deleteDatabaseBtn">Borrar la base de datos</button></div></div><div class="section-title"><h2>Desarrolladores</h2></div><div class="panel settings-card"><div class="settings-row"><div class="settings-label"><strong>Mostrar siempre «¡Estás al día!»</strong></div><button type="button" class="switch ${settings.showAlwaysUpToDate?'on':''}" data-toggle="showAlwaysUpToDate"><i></i></button></div></div></div></div>`;
+  bindBack(settingsReturnView);$$('[data-layout]').forEach(b=>safeClick(b,()=>{rememberSegmentMotion(b,'data-layout');settings.layout=b.dataset.layout;saveSettings();renderSettings();}));$$('[data-next]').forEach(b=>safeClick(b,()=>{rememberSegmentMotion(b,'data-next');settings.nextVisibility=b.dataset.next;saveSettings();renderSettings();}));$$('[data-text-size]').forEach(b=>safeClick(b,()=>{rememberSegmentMotion(b,'data-text-size');settings.textSize=Number(b.dataset.textSize);saveSettings();renderSettings();}));$$('[data-toggle]').forEach(b=>safeClick(b,()=>{const scrollTop=$('.view')?.scrollTop||0;rememberSwitchMotion(b);const key=b.dataset.toggle;settings[key]=!settings[key];saveSettings();renderSettings();requestAnimationFrame(()=>{const view=$('.view');if(view)view.scrollTop=scrollTop;});if(key==='dynamicTheme'&&settings.dynamicTheme&&settings.themeScheduleMode==='auto')requestDynamicLocation();if(key==='fullscreen')setFullscreenMode(settings.fullscreen);}));
+  $$('[data-schedule-mode]').forEach(b=>safeClick(b,()=>{settings.themeScheduleMode=b.dataset.scheduleMode;saveSettings();renderSettings();if(settings.themeScheduleMode==='auto')requestDynamicLocation();}));
+  $('#dayThemeSelect')?.addEventListener('change',e=>{settings.dayTheme=e.target.value;saveSettings();});
+  $('#nightThemeSelect')?.addEventListener('change',e=>{settings.nightTheme=e.target.value;saveSettings();});
+  $('#dayStartInput')?.addEventListener('change',e=>{settings.dayStart=e.target.value||'07:30';saveSettings();});
+  $('#nightStartInput')?.addEventListener('change',e=>{settings.nightStart=e.target.value||'20:30';saveSettings();});
+  safeClick($('#refreshLocationBtn'),requestDynamicLocation);
   $$('[data-theme]').forEach(b=>safeClick(b,()=>{const name=b.dataset.theme;if(settings.theme===name)openThemeEditor(name);else{settings.theme=name;themeEditorName=null;themeDraft=null;activeColorField=null;themeNameEditing=false;saveSettings();renderSettings();}}));
   bindColorPicker();bindThemeNameEditor();safeClick($('#themeAccept'),()=>{if(!themeEditorName||!themeDraft)return;settings.customThemes[themeEditorName]={...themeDraft};settings.theme=themeEditorName;themeEditorName=null;themeDraft=null;activeColorField=null;themeNameEditing=false;saveSettings();renderSettings();});
   safeClick($('#exportBtn'),exportData);safeClick($('#importBtn'),()=>$('#importFile').click());safeClick($('#resetDatabaseBtn'),()=>$('#resetDbModal').classList.remove('hidden'));safeClick($('#deleteDatabaseBtn'),()=>$('#deleteDbModal').classList.remove('hidden'));playSettingsMotions();
 }
-function themeDot(name){ const colors=themeColors(name);return `<button type="button" class="theme-dot ${settings.theme===name?'active':''}" data-theme="${name}" aria-label="Tema ${escAttr(themeDisplayName(name))}. Pulsa de nuevo para personalizar" style="background:${colors.header}"></button>`; }
+function themeDot(name){ const colors=themeColors(name);return `<button type="button" class="theme-dot ${activeThemeName()===name?'active':''}" data-theme="${name}" aria-label="Tema ${escAttr(themeDisplayName(name))}. Pulsa de nuevo para personalizar" style="background:${colors.header}"></button>`; }
 async function exportData(){ const payload={version:12,exportedAt:new Date().toISOString(),items:await getAll(),settings,usage:loadUsage()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`repaso-${todayKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);showToast('Exportado'); }
-$('#importFile').addEventListener('change',async e=>{ const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());if(!Array.isArray(data.items))throw new Error('Formato no válido');if(!confirm(`Importar ${data.items.length} elementos y sustituir la base actual?`))return;await clearItems();for(const it of data.items)await putItem(it);if(data.settings){settings={...defaultSettings,...data.settings};settings.customThemes=settings.customThemes&&typeof settings.customThemes==='object'?settings.customThemes:{};settings.themeNames=settings.themeNames&&typeof settings.themeNames==='object'?settings.themeNames:{};normalizeStatsChartSettings();themeEditorName=null;themeDraft=null;activeColorField=null;themeNameEditing=false;saveSettings();}if(data.usage)saveUsage(data.usage);showToast('Importación completada');await renderSettings();}catch(err){alert('No se pudo importar el archivo: '+err.message);}finally{e.target.value='';} });
+$('#importFile').addEventListener('change',async e=>{ const file=e.target.files?.[0];if(!file)return;try{const data=JSON.parse(await file.text());if(!Array.isArray(data.items))throw new Error('Formato no válido');if(!confirm(`Importar ${data.items.length} elementos y sustituir la base actual?`))return;await clearItems();for(const it of data.items)await putItem(it);if(data.settings){settings={...defaultSettings,...data.settings};settings.customThemes=settings.customThemes&&typeof settings.customThemes==='object'?settings.customThemes:{};settings.themeNames=settings.themeNames&&typeof settings.themeNames==='object'?settings.themeNames:{};normalizeStatsChartSettings();normalizeDynamicThemeSettings();themeEditorName=null;themeDraft=null;activeColorField=null;themeNameEditing=false;saveSettings();}if(data.usage)saveUsage(data.usage);showToast('Importación completada');await renderSettings();}catch(err){alert('No se pudo importar el archivo: '+err.message);}finally{e.target.value='';} });
 
 // ---------- Stats ----------
 const RANGE_LABELS=['últimos 7 días','últimos 30 días','últimas 8 semanas','últimas 20 semanas','últimos 12 meses'];
@@ -948,7 +1006,7 @@ document.addEventListener('keydown',e=>{
 });
 
 // Start
-(async()=>{await clearDatabaseForRelease();await installInitialDatabase();await renderHome();})();
+(async()=>{await installInitialDatabase();await renderHome();})();
 </script>
 </body>
 </html>
