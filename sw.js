@@ -1,12 +1,13 @@
-const APP_VERSION = '0.16.0';
+const APP_VERSION = '0.18.0';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const APP_SHELL = [
   './',
   './index.html',
-  './manifest-v3.webmanifest',
-  './icon-192-v3.png',
-  './icon-512-v3.png',
-  './icon-1024-v3.png'
+  './manifest-v4.webmanifest',
+  './demo-data.js',
+  './icon-192-v4.png',
+  './icon-512-v4.png',
+  './icon-1024-v4.png'
 ];
 
 self.addEventListener('install', event => {
@@ -32,13 +33,15 @@ self.addEventListener('fetch', event => {
 
   if (event.request.mode === 'navigate') {
     event.respondWith(
-      fetch(event.request)
-        .then(response => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put('./index.html', copy));
-          return response;
-        })
-        .catch(() => caches.match('./index.html').then(response => response || caches.match('./')))
+      caches.match('./index.html').then(cached => {
+        if (cached) return cached;
+        return fetch(event.request)
+          .then(response => {
+            if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put('./index.html', response.clone()));
+            return response;
+          })
+          .catch(() => caches.match('./'));
+      })
     );
     return;
   }

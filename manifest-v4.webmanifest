@@ -1,0 +1,39 @@
+{
+  "id": "./",
+  "name": "Repasos",
+  "short_name": "Repasos",
+  "description": "Repasos rápidos de conceptos mediante tarjetas y repetición espaciada.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#496FF0",
+  "theme_color": "#496FF0",
+  "icons": [
+    {
+      "src": "./icon-192-v4.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512-v4.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512-v4.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-1024-v4.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

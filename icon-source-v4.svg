@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#496FF0"/>
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <mask id="boltCutout" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1024">
+      <rect width="1024" height="1024" fill="#fff"/>
+      <path d="M583 271 452 498h83l-89 255 190-286h-88l112-196z" fill="#000"/>
+    </mask>
+  </defs>
+  <g>
+    <rect x="151" y="352" width="174" height="337" rx="44" fill="url(#card)" transform="rotate(-13 238 520.5)"/>
+    <rect x="699" y="352" width="174" height="337" rx="44" fill="url(#card)" transform="rotate(13 786 520.5)"/>
+    <rect x="334" y="271" width="356" height="482" rx="52" fill="url(#card)" mask="url(#boltCutout)"/>
+  </g>
+</svg>
