@@ -1,13 +1,15 @@
-const APP_VERSION = '0.19.0';
+const APP_VERSION = '0.20.0';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const APP_SHELL = [
   './',
   './index.html',
-  './manifest-v4.webmanifest',
+  './manifest-v5.webmanifest',
   './demo-data.js',
-  './icon-192-v4.png',
-  './icon-512-v4.png',
-  './icon-1024-v4.png'
+  './icon-192-v5.png',
+  './icon-192-maskable-v5.png',
+  './icon-512-v5.png',
+  './icon-512-maskable-v5.png',
+  './icon-1024-v5.png'
 ];
 
 self.addEventListener('install', event => {
