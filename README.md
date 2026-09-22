@@ -4,7 +4,7 @@ PWA instalable para repasar conceptos con tarjetas, respuestas `yes`/`nope`, pis
 
 ## Modo arcade
 
-La versión 0.21 incorpora una capa arcade opcional para Estándar y Scroll: XP y niveles de sesión, progresión global más lenta, combos, multiplicadores variables, `Perfect`, rondas relámpago, jackpot, vibración, sonidos chiptune sintetizados, efectos pixel-art y un resumen al terminar. El progreso arcade se guarda localmente y se incluye en las exportaciones JSON.
+La versión 0.22 incorpora una capa arcade configurable para Estándar y Scroll: XP y niveles de sesión, progresión global, combos escalonados, dificultad, multiplicadores variables, `Perfect`, rondas relámpago, vibración, música y sonidos chiptune sintetizados, efectos pixel-art y un resumen detallado al terminar. El progreso y todos los ajustes se guardan localmente; pueden exportarse juntos o por separado.
 
 ## Publicación en GitHub Pages
 

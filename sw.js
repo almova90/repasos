@@ -1,10 +1,13 @@
-const APP_VERSION = '0.21.0';
+const APP_VERSION = '0.22.0';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const APP_SHELL = [
   './',
   './index.html',
   './manifest-v5.webmanifest',
   './demo-data.js',
+  './fonts/Perfect-DOS-VGA-437.ttf',
+  './fonts/m04.TTF',
+  './fonts/Minecraft.ttf',
   './icon-192-v5.png',
   './icon-192-maskable-v5.png',
   './icon-512-v5.png',
