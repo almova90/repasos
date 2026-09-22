@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest-v5.webmanifest" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192-maskable-v5.png" />
 <link rel="apple-touch-icon" href="./icon-192-maskable-v5.png" />
-<title>Repasos — v0.24.0</title>
+<title>Repasos — v0.25.0</title>
 <style>
 @font-face{font-family:ArcadePerfect;src:url('./fonts/Perfect-DOS-VGA-437.ttf') format('truetype');font-display:swap}
 @font-face{font-family:ArcadeM04;src:url('./fonts/m04.TTF') format('truetype');font-display:swap}
@@ -253,13 +253,41 @@ body[data-theme="pop"] .panel,body[data-theme="pop"] .launch{border:2px solid #0
 @keyframes arcadeSuperRotate{0%{transform:rotate(var(--burst-spin,1440deg)) scale(.4)}25%{transform:rotate(var(--burst-spin-3,1080deg)) scale(.72)}50%{transform:rotate(var(--burst-spin-2,720deg)) scale(.9)}75%{transform:rotate(var(--burst-spin-1,360deg)) scale(1.04)}100%{transform:rotate(0deg) scale(1)}}
 @keyframes arcadePrism{to{transform:rotate(360deg) scale(1.45)}}@keyframes arcadeFeaturedSuperGlitch{0%,100%{filter:none;translate:0;clip-path:inset(0)}20%{filter:drop-shadow(-16px 0 #00e8ef) drop-shadow(12px 0 #ff3048);translate:-5px 2px;clip-path:inset(8% 0 34% 0)}40%{filter:hue-rotate(120deg) contrast(1.8);translate:6px -3px;clip-path:inset(45% 0 5% 0)}60%{filter:drop-shadow(14px 0 #ffe85a) drop-shadow(-11px 0 #bd51ff);translate:-3px 4px;clip-path:inset(18% 0 55% 0)}80%{filter:saturate(2.4) contrast(1.5);translate:4px 0;clip-path:inset(0)}}@keyframes arcadeFeaturedPulseStrong{0%,100%{filter:brightness(1);transform:scale(1)}45%{filter:brightness(1.8) saturate(2);transform:scale(1.075);box-shadow:0 0 42px 12px rgba(255,62,213,.62)}60%{transform:scale(.97)}}@keyframes arcadeFeaturedColorCycle{0%{background-color:rgba(255,50,75,.72);border-color:#ff354d;box-shadow:0 0 28px rgba(255,50,75,.55)}20%{background-color:rgba(39,123,255,.7);border-color:#277bff;box-shadow:0 0 28px rgba(39,123,255,.55)}40%{background-color:rgba(255,214,54,.65);border-color:#ffd636;box-shadow:0 0 28px rgba(255,214,54,.48)}60%{background-color:rgba(181,59,255,.72);border-color:#b53bff;box-shadow:0 0 28px rgba(181,59,255,.58)}80%{background-color:rgba(30,220,147,.68);border-color:#1edc93;box-shadow:0 0 28px rgba(30,220,147,.5)}}
 @media (max-width:380px){.launch-grid{grid-template-columns:1fr 1fr}.launch{min-height:148px;padding:12px}.launch h3{font-size:17px}.home-header{min-height:calc(246px + var(--home-hero-offset,0px))}}
+
+/* Repasos 0.25.0 */
+.theme-dots{display:grid;grid-template-columns:repeat(6,27px);gap:7px;justify-content:end;flex:0 0 auto}
+.arcade-range{min-width:0}
+.arcade-range label{min-width:0;overflow-wrap:anywhere}
+.arcade-range input[type="range"]{min-width:0;max-width:100%;width:100%;box-sizing:border-box}
+.arcade-summary-total{display:block;width:100%;margin-left:auto;margin-right:auto;text-align:center}
+
+body[data-theme="kaleido"]{--bg:#130a2b;--surface:#251249;--surface-2:#3b1a66;--ink:#fff;--muted:#d4b9ee;--header:#ff3c91;--header-2:#4d45ff;--accent:#38f2d0;--line:rgba(255,255,255,.15);--shadow:0 16px 44px rgba(6,1,20,.45);--game-bg:conic-gradient(from 25deg at 50% 50%,#ff3c91,#ffba2c,#39ef91,#29d8ff,#7648ff,#ff3c91);--game-ink:#fff;--game-card:rgba(25,8,52,.86);--game-card-solid:#251249;--game-card-border:rgba(255,255,255,.32);--scroll-active-ink:#fff;--scroll-active-card:#51208f}
+body[data-theme="acid"]{--bg:#dfff00;--surface:#101a05;--surface-2:#25340a;--ink:#f7ffe7;--muted:#cde39a;--header:#5900ff;--header-2:#ff3bd4;--accent:#ff3bd4;--line:rgba(223,255,0,.35);--shadow:0 14px 0 #080b0a;--game-bg:repeating-linear-gradient(135deg,#dfff00 0 24px,#101a05 24px 48px,#ff3bd4 48px 72px,#5900ff 72px 96px);--game-ink:#fff;--game-card:rgba(16,26,5,.9);--game-card-solid:#101a05;--game-card-border:#dfff00;--scroll-active-ink:#0b0d0b;--scroll-active-card:#dfff00}
+body[data-theme="fiesta"]{--bg:#ff6f00;--surface:#fff4de;--surface-2:#ffd36b;--ink:#231300;--muted:#68461f;--header:#e6007e;--header-2:#00a7ff;--accent:#00a7ff;--line:#231300;--shadow:6px 7px 0 rgba(35,19,0,.88);--game-bg:radial-gradient(circle at 15% 20%,#ffe600 0 9%,transparent 10%),radial-gradient(circle at 80% 18%,#00dbff 0 9%,transparent 10%),radial-gradient(circle at 70% 78%,#e6007e 0 11%,transparent 12%),linear-gradient(140deg,#ff6f00,#ffca28 42%,#28d170 72%,#00a7ff);--game-ink:#231300;--game-card:rgba(255,244,222,.93);--game-card-solid:#fff4de;--game-card-border:#231300;--scroll-active-ink:#fff;--scroll-active-card:#e6007e}
+body[data-theme="kaleido"] .game-view,body[data-theme="kaleido"] .scroll-game,body[data-theme="acid"] .game-view,body[data-theme="acid"] .scroll-game,body[data-theme="fiesta"] .game-view,body[data-theme="fiesta"] .scroll-game{background:var(--game-bg)}
+body[data-theme="acid"] .panel,body[data-theme="acid"] .launch,body[data-theme="fiesta"] .panel,body[data-theme="fiesta"] .launch{border:2px solid currentColor}
+
+.arcade-featured-prism{position:relative;isolation:isolate;overflow:hidden}
+.arcade-featured-prism::before{inset:-38%!important;border-radius:inherit;transform-origin:center;animation:arcadePrismCover var(--arcade-highlight-speed,1.8s) linear infinite!important}
+@keyframes arcadePrismCover{from{transform:rotate(0deg) scale(1.45)}to{transform:rotate(360deg) scale(1.45)}}
+
+.arcade-featured-colorcycle{border:5px solid #ffb3bd!important;animation:arcadeFeaturedColorCycleFixed var(--arcade-highlight-speed,1.8s) steps(1,end) infinite!important}
+@keyframes arcadeFeaturedColorCycleFixed{
+  0%,100%{background-color:rgba(255,50,75,.72);border-color:#ffb3bd;box-shadow:inset 0 0 0 2px rgba(255,255,255,.72),0 0 30px rgba(255,50,75,.62)}
+  20%{background-color:rgba(39,123,255,.70);border-color:#b8d0ff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.72),0 0 30px rgba(39,123,255,.62)}
+  40%{background-color:rgba(255,214,54,.65);border-color:#fff0a6;box-shadow:inset 0 0 0 2px rgba(255,255,255,.72),0 0 30px rgba(255,214,54,.58)}
+  60%{background-color:rgba(181,59,255,.72);border-color:#e2b5ff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.72),0 0 30px rgba(181,59,255,.64)}
+  80%{background-color:rgba(30,220,147,.68);border-color:#a8f6d6;box-shadow:inset 0 0 0 2px rgba(255,255,255,.72),0 0 30px rgba(30,220,147,.58)}
+}
+@media(max-width:380px){.theme-dots{grid-template-columns:repeat(6,25px);gap:5px}.theme-dot{width:25px;height:25px}}
+
 </style>
 </head>
 <body data-theme="violet">
 <div class="app" id="app"></div>
 <div class="toast" id="toast"></div>
 <div class="day-toast" id="dayToast" role="status" aria-live="polite"></div>
-<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.24.0</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
+<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.25.0</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
 <div class="modal hidden" id="editModal" role="dialog" aria-modal="true">
   <div class="modal-card">
     <h3 id="editModalTitle">Editar elemento</h3>
@@ -362,7 +390,7 @@ let summarySettingsPreview = null;
 
 const SETTINGS_STORAGE_KEY='repaso-settings';
 const SETTINGS_PINS_KEY='repaso-settings-pins-v1';
-const THEME_KEYS=['violet','ink','teal','sand','aurora','arcade','neon','pulse','pop'];
+const THEME_KEYS=['violet','ink','teal','sand','aurora','arcade','neon','pulse','pop','kaleido','acid','fiesta'];
 const THEME_PLACES={
   valencia:{label:'Valencia',lat:39.47,lon:-.38},madrid:{label:'Madrid',lat:40.42,lon:-3.7},barcelona:{label:'Barcelona',lat:41.39,lon:2.17},alicante:{label:'Alicante',lat:38.35,lon:-.48},sevilla:{label:'Sevilla',lat:37.39,lon:-5.99},zaragoza:{label:'Zaragoza',lat:41.65,lon:-.89},malaga:{label:'Málaga',lat:36.72,lon:-4.42},murcia:{label:'Murcia',lat:37.98,lon:-1.13},bilbao:{label:'Bilbao',lat:43.26,lon:-2.93},coruna:{label:'A Coruña',lat:43.36,lon:-8.41},valladolid:{label:'Valladolid',lat:41.65,lon:-4.72},palma:{label:'Palma',lat:39.57,lon:2.65},laspalmas:{label:'Las Palmas',lat:28.12,lon:-15.43}
 };
@@ -370,7 +398,7 @@ const defaultStatsCharts={reviews:{scale:'linear',step:1,base:2,count:15,fontSiz
 const DEFAULT_ARCADE_SETTINGS={
   intensity:5,hudChroma:7.5,popupChroma:7.5,hudFont:'perfect',popupFont:'mixed',summaryHeroFont:'perfect',summaryBreakdownFont:'perfect',summaryStatsFont:'system',summaryBodyFont:'system',
   summaryLabelFont:'system',summaryValueFont:'system',difficultyFont:'perfect',hudTextSize:16,hudTop:74,popupTextSize:100,popupChaos:6,popupMotion:6,popupAngleVariance:18,popupKeepInside:false,superRotation:false,normalFrequency:38,errorFrequency:55,errorSize:90,normalDuration:1.8,errorDuration:1.6,xpDisplay:'both',confettiThickness:8,confettiSpread:72,
-  xpBase:18,xpVariance:45,comboStrength:5,levelDuration:4.2,levelEffect:'waves',levelPopupAlso:false,vibration:true,vibrationGood:3,vibrationError:5,vibrationCombo:7,vibrationLevel:7,vibrationLightning:6,
+  xpBase:18,xpVariance:45,comboStrength:5,levelDuration:4.2,globalLevelDuration:1.5,levelEffect:'waves',levelPopupAlso:false,vibration:true,vibrationGood:3,vibrationError:5,vibrationCombo:7,vibrationLevel:7,vibrationLightning:6,
   lightningDuration:20,lightningEntryDuration:2.6,lightningStyle:'bolts',lightningMusic:true,lightningTrack:'rush',backgroundMusic:false,backgroundTrack:'loop1',sound:true,musicVolume:30,effectsVolume:30,
   highlightChance:100,highlightEffect:'random',highlightSpeed:1.8,difficultyLabelPosition:'top',difficultyLabelSize:12,difficultyLabelColor:'#ffffff',difficultyLabelStyle:'box',
   homeXpStyle:'floating',globalTransferSpeed:1.5,crt:true,summaryRays:'needles',summaryRayIntensity:40,summaryRaySpeed:5,summaryInsightCount:2,summaryTitleSize:14,summaryLevelSize:44,summaryXpSize:58,summaryBreakdownSize:12,summaryLabelSize:10,summaryValueSize:20,summaryBodySize:13
@@ -400,9 +428,12 @@ const baseThemeColors={
   arcade:{background:'#11051f',card:'#24103d',accent:'#a83de0',header:'#2d0758'},
   neon:{background:'#050a20',card:'#101a42',accent:'#a05cff',header:'#3c0c73'},
   pulse:{background:'#16051b',card:'#310b35',accent:'#45f2d0',header:'#ed1676'},
-  pop:{background:'#f8e63d',card:'#fffdf0',accent:'#ed2840',header:'#1258d8'}
+  pop:{background:'#f8e63d',card:'#fffdf0',accent:'#ed2840',header:'#1258d8'},
+  kaleido:{background:'#130a2b',card:'#251249',accent:'#38f2d0',header:'#ff3c91'},
+  acid:{background:'#dfff00',card:'#101a05',accent:'#ff3bd4',header:'#5900ff'},
+  fiesta:{background:'#ff6f00',card:'#fff4de',accent:'#00a7ff',header:'#e6007e'}
 };
-const baseThemeNames={violet:'Violeta',ink:'Tinta',teal:'Turquesa',sand:'Arena',aurora:'Aurora',arcade:'Arcade',neon:'Neón azul',pulse:'Pulso',pop:'Pop eléctrico'};
+const baseThemeNames={violet:'Violeta',ink:'Tinta',teal:'Turquesa',sand:'Arena',aurora:'Aurora',arcade:'Arcade',neon:'Neón azul',pulse:'Pulso',pop:'Pop eléctrico',kaleido:'Caleidoscopio',acid:'Ácido',fiesta:'Fiesta gráfica'};
 
 function saveSettings(){applySettingsPins(settings);localStorage.setItem(SETTINGS_STORAGE_KEY,JSON.stringify(settings));applyTheme();}
 function persistSetting(path,value){pinSetting(path,value);normalizeDynamicThemeSettings();saveSettings();}
@@ -605,7 +636,7 @@ function arcadeSessionKey(){return settings.demoMode?'repasos-arcade-session-dem
 function emptyArcadeProgress(){return {xp:0,sessions:0,answered:0,correct:0,bestCombo:0,bestSessionXp:0,levelBonusXp:0,difficultyBonusXp:0,lightningBonusXp:0,recovered:0,recentSessions:[]};}
 function loadArcadeProgress(){try{return {...emptyArcadeProgress(),...JSON.parse(localStorage.getItem(arcadeStorageKey())||'{}')};}catch{return emptyArcadeProgress();}}
 function saveArcadeProgress(progress){localStorage.setItem(arcadeStorageKey(),JSON.stringify(progress));}
-function globalLevelStart(level){return level<=1?0:Math.round(600*Math.pow(level-1,1.65));}
+function globalLevelStart(level){return level<=1?0:(level-1)*1000;}
 function globalLevelForXp(xp){let level=1;while(level<999&&xp>=globalLevelStart(level+1))level++;return level;}
 function globalLevelState(xp){const level=globalLevelForXp(xp),start=globalLevelStart(level),next=globalLevelStart(level+1),span=Math.max(1,next-start);return {level,start,next,progress:Math.max(0,Math.min(1,(xp-start)/span)),within:Math.max(0,xp-start),needed:span};}
 function loadSavedArcadeSession(){try{const value=JSON.parse(localStorage.getItem(arcadeSessionKey())||'null');return value&&value.active?value:null;}catch{return null;}}
@@ -687,9 +718,18 @@ function showArcadeSummary(summary){
   modal.classList.remove('hidden');arcadeSound('end');$$('[data-insight]',modal).forEach(button=>safeClick(button,()=>button.closest('.arcade-insight').classList.toggle('open')));safeClick($('#arcadeSummaryFinish'),()=>closeArcadeSummary(summary));safeClick($('#arcadeSummaryContinue'),()=>closeArcadeSummary(summary,true));safeClick($('#arcadeSummarySettings'),()=>{summarySettingsPreview=summary;modal.classList.add('hidden');go('settings',{origin:'summary'});});let startX=0,startY=0;card.onpointerdown=e=>{startX=e.clientX;startY=e.clientY;};card.onpointerup=e=>{if(Math.abs(e.clientX-startX)>80&&Math.abs(e.clientX-startX)>Math.abs(e.clientY-startY)*1.3)closeArcadeSummary(summary);};
 }
 function animateGlobalXpTransfer(summary){const level=$('[data-global-level]'),copy=$('[data-global-xp]'),fill=$('[data-global-fill]');if(!level||!copy||!fill)return;const from=summary.globalXpBefore,to=summary.globalXpAfter,duration=Math.max(500,(summary.gained/1000)*settings.arcade.globalTransferSpeed*1000),start=performance.now();let lastLevel=globalLevelForXp(from),lastTone=0;const frame=now=>{const p=Math.min(1,(now-start)/duration),eased=1-Math.pow(1-p,3),xp=Math.round(from+(to-from)*eased),state=globalLevelState(xp);level.textContent=`Nivel ${state.level}`;copy.textContent=`${xp.toLocaleString('es-ES')} XP`;fill.style.setProperty('--arcade-progress',`${state.progress*100}%`);if(now-lastTone>100){lastTone=now;arcadeToneSequence([[150+eased*650,.07]],'square',.012);}if(state.level>lastLevel){showGlobalLevelOverlay(state.level);lastLevel=state.level;}if(p<1)requestAnimationFrame(frame);else arcadeSound('end');};requestAnimationFrame(frame);}
-function showGlobalLevelOverlay(level){const overlay=document.createElement('div');overlay.className='arcade-global-levelup';overlay.style.setProperty('--arcade-overlay-duration',`${settings.arcade.levelDuration}s`);overlay.innerHTML=`<div><small>Nivel de Repasos</small><strong>Nivel ${level}</strong></div>`;document.body.appendChild(overlay);arcadeSound('level');setTimeout(()=>overlay.remove(),settings.arcade.levelDuration*1000+100);}
+function showGlobalLevelOverlay(level){
+  const duration=Math.max(.5,Math.min(6,Number(settings.arcade.globalLevelDuration)||1.5));
+  const overlay=document.createElement('div');
+  overlay.className='arcade-global-levelup';
+  overlay.style.setProperty('--arcade-overlay-duration',`${duration}s`);
+  overlay.innerHTML=`<div><small>Nivel de Repasos</small><strong>Nivel ${level}</strong></div>`;
+  document.body.appendChild(overlay);
+  arcadeSound('level');
+  setTimeout(()=>overlay.remove(),duration*1000+100);
+}
 function arcadeFeatureVisible(item){if(!settings.arcadeMode||!arcadeDifficulty(item))return false;let hash=0;for(const ch of String(item.id))hash=(hash*31+ch.charCodeAt(0))>>>0;return hash%100<settings.arcade.highlightChance;}
-function arcadeFeaturedClass(item){if(!arcadeFeatureVisible(item))return'';const effects=['halo','prism','glitch','superglitch','pulse','colorcycle'],effect=settings.arcade.highlightEffect==='random'?effects[Math.floor(Math.random()*effects.length)]:settings.arcade.highlightEffect;return `arcade-featured-${effect}`;}
+function arcadeFeaturedClass(item){if(!arcadeFeatureVisible(item))return'';const effects=['halo','prism','glitch','pulse','colorcycle'],effect=settings.arcade.highlightEffect==='random'?effects[Math.floor(Math.random()*effects.length)]:settings.arcade.highlightEffect;return `arcade-featured-${effect}`;}
 function arcadeDifficultyMarkup(item){const difficulty=arcadeDifficulty(item);if(!difficulty||!arcadeFeatureVisible(item))return'';return `<span class="arcade-difficulty-badge grade-${difficulty.grade} pos-${settings.arcade.difficultyLabelPosition} style-${settings.arcade.difficultyLabelStyle}">${difficulty.label} · XP ×${String(difficulty.multiplier).replace('.',',')}</span>`;}
 
 // ---------- Review engine ----------
@@ -794,7 +834,7 @@ async function renderHome(){
   const items=await getAll(), now=Date.now(), due=items.filter(x=>x.dueAt<=now).length;
   app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.23.0</span><div class="header-copy home-title"><h1>Repasos rápidos${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${items.length} elementos · ${due} pendientes</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" data-go="game"><div class="mark">${standardIcon}</div><h3>Estándar</h3></button><button type="button" class="panel launch scroll-mode" data-go="scroll"><div class="mark">${scrollModeIcon}</div><h3>Scroll</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
   bindGo();
-  const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.24.0';
+  const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.25.0';
 }
 function subhead(title,right=''){ return `<div class="subhead">${btnIcon(chevronIcon,'back','Volver')}<h2>${title}</h2><div class="spacer"></div>${right}</div>`; }
 function safeClick(el,fn){if(!el)return;el.onclick=e=>{e.preventDefault();e.stopPropagation();fn(e);};}
@@ -1279,15 +1319,15 @@ function arcadeSection(title,body,open=false){return `<details class="arcade-set
 function arcadeSettingsMarkup(){const a=settings.arcade;return `<div class="settings-row"><div class="settings-label"><strong>Modo arcade</strong></div><button type="button" class="switch ${settings.arcadeMode?'on':''}" id="arcadeModeSwitch"><i></i></button></div>${!settings.arcadeMode?'':[
   arcadeSection('Aspecto y tipografía',arcadeRange('intensity','Intensidad general',0,10,.1)+arcadeSelect('hudFont','Fuente de la barra',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('popupFont','Fuente de mensajes',ARCADE_FONT_OPTIONS)+arcadeRange('hudChroma','Desplazamiento rojo/azul de barra',0,10,.1)+arcadeRange('popupChroma','Desplazamiento rojo/azul de mensajes',0,10,.1)+arcadeRange('hudTextSize','Tamaño del texto de barra',11,30,1,' px')+arcadeRange('hudTop','Altura de la barra',40,180,1,' px')+arcadeRange('popupTextSize','Tamaño de mensajes',55,180,1,'%')+arcadeToggle('crt','Líneas CRT'),true),
   arcadeSection('Feedback, aciertos y errores',arcadeRange('normalFrequency','Frecuencia de mensajes de acierto',0,100,1,'%')+arcadeRange('errorFrequency','Frecuencia de animaciones de error',0,100,1,'%')+arcadeRange('errorSize','Tamaño de animaciones de error',30,200,1,'%')+arcadeRange('normalDuration','Duración del acierto',.5,5,.1,' s')+arcadeRange('errorDuration','Duración del error',.5,5,.1,' s')+arcadeRange('popupChaos','Dispersión de los mensajes',0,10,.1)+arcadeRange('popupMotion','Movimiento de los mensajes',0,10,.1)+arcadeRange('popupAngleVariance','Variabilidad del ángulo',0,60,1,'°')+arcadeToggle('popupKeepInside','Forzar dentro de la pantalla')+arcadeToggle('superRotation','Superrotación al aparecer')+arcadeSelect('xpDisplay','Dónde mostrar el XP',[['bar','Solo en la barra'],['message','Solo en el mensaje'],['both','En ambos']])+arcadeRange('confettiThickness','Grosor del confeti',2,18,1,' px')+arcadeRange('confettiSpread','Tamaño de la explosión',20,160,1,' px')),
-  arcadeSection('XP, combos y niveles',arcadeRange('xpBase','XP base por acierto',1,35,1)+arcadeRange('xpVariance','Variación aleatoria de XP',0,100,1,'%')+arcadeRange('comboStrength','Fuerza de los combos',0,10,.1)+arcadeRange('levelDuration','Duración al subir de nivel',.5,9,.1,' s')+arcadeSelect('levelEffect','Efecto añadido al subir',[['waves','Ondas blancas'],['waves-wide','Ondas anchas'],['waves-double','Ondas dobles'],['pixels','Lluvia de píxeles'],['none','Sin efecto añadido']])+arcadeToggle('levelPopupAlso','Mostrar también el mensaje de XP al subir')+arcadeToggle('vibration','Vibración')+arcadeRange('vibrationGood','Vibración de acierto',0,10,1)+arcadeRange('vibrationError','Vibración de error',0,10,1)+arcadeRange('vibrationCombo','Vibración de combo',0,10,1)+arcadeRange('vibrationLevel','Vibración de nivel',0,10,1))+
+  arcadeSection('XP, combos y niveles',arcadeRange('xpBase','XP base por acierto',1,35,1)+arcadeRange('xpVariance','Variación aleatoria de XP',0,100,1,'%')+arcadeRange('comboStrength','Fuerza de los combos',0,10,.1)+arcadeRange('levelDuration','Duración al subir de nivel',.5,9,.1,' s')+arcadeRange('globalLevelDuration','Duración de la celebración global',.5,6,.1,' s')+arcadeSelect('levelEffect','Efecto añadido al subir',[['waves','Ondas blancas'],['waves-wide','Ondas anchas'],['waves-double','Ondas dobles'],['pixels','Lluvia de píxeles'],['none','Sin efecto añadido']])+arcadeToggle('levelPopupAlso','Mostrar también el mensaje de XP al subir')+arcadeToggle('vibration','Vibración')+arcadeRange('vibrationGood','Vibración de acierto',0,10,1)+arcadeRange('vibrationError','Vibración de error',0,10,1)+arcadeRange('vibrationCombo','Vibración de combo',0,10,1)+arcadeRange('vibrationLevel','Vibración de nivel',0,10,1))+
   arcadeSection('Ronda relámpago y sonido',arcadeToggle('sound','Efectos de sonido 8-bit')+arcadeRange('effectsVolume','Volumen de efectos',0,100,1,'%')+arcadeRange('musicVolume','Volumen de música',0,100,1,'%')+arcadeRange('lightningDuration','Duración de la ronda',10,45,1,' s')+arcadeRange('lightningEntryDuration','Duración de la entrada',.5,6,.1,' s')+arcadeSelect('lightningStyle','Animación de entrada',[['bolts','Rayos'],['large','Rayos enormes'],['rain','Lluvia de rayos'],['scatter','Rayos dispersos']])+arcadeToggle('backgroundMusic','Música durante el juego')+arcadeSelect('backgroundTrack','Música normal',[['loop1','Bucle'],['loop2','Neón'],['journey','Travesía']])+arcadeToggle('lightningMusic','Música en ronda relámpago')+arcadeSelect('lightningTrack','Música relámpago',[['rush','Rush'],['chase','Chase'],['pulse','Pulse']])+arcadeRange('vibrationLightning','Vibración relámpago',0,10,1))+
-  arcadeSection('Ítems difíciles',arcadeRange('highlightChance','Frecuencia de destacado',0,100,1,'%')+arcadeSelect('highlightEffect','Efecto de tarjeta',[['random','Aleatorio'],['halo','Halo'],['prism','Prisma'],['glitch','Glitch'],['superglitch','Superglitch'],['pulse','Pulso intenso'],['colorcycle','Cambio de color']])+arcadeRange('highlightSpeed','Velocidad del efecto',.4,5,.1,' s')+arcadeSelect('difficultyFont','Fuente de la etiqueta',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('difficultyLabelPosition','Posición del texto',[['top','Arriba'],['center','Centro'],['left','Izquierda'],['right','Derecha']])+arcadeRange('difficultyLabelSize','Tamaño del texto',8,24,1,' px')+`<div class="arcade-color-row"><label>Color del texto</label><input type="color" value="${a.difficultyLabelColor}" data-arcade-setting="difficultyLabelColor"></div>`+arcadeSelect('difficultyLabelStyle','Formato del texto',[['box','Con recuadro'],['plain','Solo texto'],['outline','Con borde']]))+
+  arcadeSection('Ítems difíciles',arcadeRange('highlightChance','Frecuencia de destacado',0,100,1,'%')+arcadeSelect('highlightEffect','Efecto de tarjeta',[['random','Aleatorio'],['halo','Halo'],['prism','Prisma'],['glitch','Glitch'],['pulse','Pulso intenso'],['colorcycle','Cambio de color']])+arcadeRange('highlightSpeed','Velocidad del efecto',.4,5,.1,' s')+arcadeSelect('difficultyFont','Fuente de la etiqueta',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('difficultyLabelPosition','Posición del texto',[['top','Arriba'],['center','Centro'],['left','Izquierda'],['right','Derecha']])+arcadeRange('difficultyLabelSize','Tamaño del texto',8,24,1,' px')+`<div class="arcade-color-row"><label>Color del texto</label><input type="color" value="${a.difficultyLabelColor}" data-arcade-setting="difficultyLabelColor"></div>`+arcadeSelect('difficultyLabelStyle','Formato del texto',[['box','Con recuadro'],['plain','Solo texto'],['outline','Con borde']]))+
   arcadeSection('Pantalla final y menú',arcadeSelect('summaryBreakdownFont','Fuente de «Repaso terminado» y desglose',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('summaryHeroFont','Fuente de nivel y XP',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('summaryLabelFont','Fuente de nombres de estadísticas',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('summaryValueFont','Fuente de datos de estadísticas',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeSelect('summaryBodyFont','Fuente del texto general',ARCADE_FONT_OPTIONS.slice(0,4))+arcadeRange('summaryTitleSize','Tamaño de «Repaso terminado»',9,28,1,' px')+arcadeRange('summaryLevelSize','Tamaño del nivel final',22,70,1,' px')+arcadeRange('summaryXpSize','Tamaño del XP final',24,82,1,' px')+arcadeRange('summaryBreakdownSize','Tamaño del desglose',8,22,1,' px')+arcadeRange('summaryLabelSize','Tamaño de nombres estadísticos',7,20,1,' px')+arcadeRange('summaryValueSize','Tamaño de datos estadísticos',12,36,1,' px')+arcadeRange('summaryBodySize','Tamaño del texto general',9,22,1,' px')+arcadeSelect('summaryRays','Radios del fondo',[['needles','Finos'],['wide','Anchos'],['double','Dobles']])+arcadeRange('summaryRayIntensity','Intensidad de radios',0,100,1,'%')+arcadeRange('summaryRaySpeed','Velocidad de radios',0,10,.1)+arcadeRange('summaryInsightCount','Mensajes de progreso',1,3,1)+arcadeSelect('homeXpStyle','Barra del menú',[['floating','Flotante'],['card','En tarjeta']])+arcadeRange('globalTransferSpeed','Segundos por 1000 XP',.5,5,.1,' s')),
   '<div class="settings-row"><div class="settings-label"><strong>Reiniciar experiencia arcade</strong></div><button type="button" class="danger-secondary" id="resetArcadeXpBtn">Reiniciar XP</button></div>'
 ].join('')}`;}
 function bindArcadeSettings(){
   safeClick($('#arcadeModeSwitch'),()=>{settings.arcadeMode=!settings.arcadeMode;pinSetting('arcadeMode',settings.arcadeMode);if(settings.arcadeMode){settings.theme='arcade';settings.dynamicTheme=false;}else finalizeArcadeSession();normalizeDynamicThemeSettings();saveSettings();renderSettings();});
-  $$('[data-arcade-toggle]').forEach(button=>safeClick(button,()=>{const key=button.dataset.arcadeToggle;persistSetting(`arcade.${key}`,!settings.arcade[key]);renderSettings();}));
+  $('[data-arcade-toggle]').forEach(button=>safeClick(button,()=>{const key=button.dataset.arcadeToggle;persistSetting(`arcade.${key}`,!settings.arcade[key]);button.classList.toggle('on',settings.arcade[key]);button.setAttribute('aria-pressed',String(settings.arcade[key]));}));
   $$('[data-arcade-setting]').forEach(control=>{const update=()=>{const key=control.dataset.arcadeSetting,value=control.type==='range'?Number(control.value):control.value;pinSetting(`arcade.${key}`,value);normalizeDynamicThemeSettings();const output=$(`[data-arcade-output="${key}"]`);if(output)output.textContent=`${settings.arcade[key]}${control.dataset.suffix||''}`;saveSettings();if(key.toLowerCase().includes('music')||key.includes('Track'))refreshArcadeMusic();};control.addEventListener(control.type==='range'?'input':'change',update);});
   safeClick($('#resetArcadeXpBtn'),()=>{if(!confirm('¿Seguro que quieres reiniciar todos los puntos de experiencia y estadísticas arcade?'))return;saveArcadeProgress(emptyArcadeProgress());localStorage.removeItem(arcadeSessionKey());arcadeSession=null;showToast('Experiencia arcade reiniciada');renderSettings();});
 }
@@ -1312,7 +1352,7 @@ const renderSettingsCore=renderSettings;
 function developerRange(key,label,min,max){return `<div class="arcade-range"><label for="developer-${key}">${label}</label><output data-developer-output="${key}">${settings[key]} px</output><input id="developer-${key}" type="range" min="${min}" max="${max}" step="1" value="${settings[key]}" data-developer-range="${key}"></div>`;}
 renderSettings=async function(){
   await renderSettingsCore();
-  const themeDots=$('.theme-dots');for(const name of ['neon','pulse','pop']){if(!themeDots?.querySelector(`[data-theme="${name}"]`)){const holder=document.createElement('div');holder.innerHTML=themeDot(name);const button=holder.firstElementChild;themeDots?.appendChild(button);safeClick(button,()=>{settings.theme=name;settings.dynamicTheme=false;themeEditorName=null;themeDraft=null;activeColorField=null;themeNameEditing=false;saveSettings();renderSettings();});}}
+  const themeDots=$('.theme-dots');for(const name of ['neon','pulse','pop','kaleido','acid','fiesta']){if(!themeDots?.querySelector(`[data-theme="${name}"]`)){const holder=document.createElement('div');holder.innerHTML=themeDot(name);const button=holder.firstElementChild;themeDots?.appendChild(button);safeClick(button,()=>{settings.theme=name;settings.dynamicTheme=false;themeEditorName=null;themeDraft=null;activeColorField=null;themeNameEditing=false;saveSettings();renderSettings();});}}
   const dynamicTitle=[...$$('.settings-label strong')].find(node=>node.textContent==='Tema según la hora');dynamicTitle?.parentElement.querySelector('small')?.remove();
   const developerTitle=[...$$('.section-title h2')].find(node=>node.textContent==='Desarrolladores');if(developerTitle)developerTitle.textContent='Opciones para desarrolladores';
   const developerCard=developerTitle?.parentElement.nextElementSibling;if(developerCard){
@@ -1330,7 +1370,19 @@ renderSettings=async function(){
     requestAnimationFrame(positionSegmentIndicators);
   }
 };
-function themeDot(name){ const colors=themeColors(name);return `<button type="button" class="theme-dot ${activeThemeName()===name?'active':''}" data-theme="${name}" aria-label="Tema ${escAttr(themeDisplayName(name))}. Pulsa de nuevo para personalizar" style="background:${colors.header}"></button>`; }
+function themeDot(name){
+  const colors=themeColors(name);
+  const swatch=name==='pop'
+    ?'conic-gradient(#1258d8 0 25%,#ed2840 25% 50%,#f8e63d 50% 75%,#13c98b 75%)'
+    :name==='kaleido'
+      ?'conic-gradient(#ff3c91,#ffba2c,#39ef91,#29d8ff,#7648ff,#ff3c91)'
+      :name==='acid'
+        ?'linear-gradient(135deg,#dfff00 0 48%,#5900ff 48% 72%,#ff3bd4 72%)'
+        :name==='fiesta'
+          ?'conic-gradient(#e6007e,#ffca28,#28d170,#00a7ff,#e6007e)'
+          :colors.header;
+  return `<button type="button" class="theme-dot ${activeThemeName()===name?'active':''}" data-theme="${name}" aria-label="Tema ${escAttr(themeDisplayName(name))}. Pulsa de nuevo para personalizar" style="background:${swatch}"></button>`;
+}
 async function exportData(mode='all'){const common={version:14,exportedAt:new Date().toISOString(),kind:`repasos-${mode}`},payload=mode==='settings'?{...common,settings}:mode==='data'?{...common,items:await getAll(),usage:loadUsage(),arcade:loadArcadeProgress()}:{...common,items:await getAll(),settings,usage:loadUsage(),arcade:loadArcadeProgress()};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`repasos-${mode}-${todayKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);showToast(mode==='settings'?'Ajustes exportados':mode==='data'?'Datos exportados':'Todo exportado');}
 $('#importFile').addEventListener('change',async e=>{
   const file=e.target.files?.[0];if(!file)return;
