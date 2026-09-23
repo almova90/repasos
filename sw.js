@@ -1,4 +1,4 @@
-const APP_VERSION = '0.27.0';
+const APP_VERSION = '0.28.0';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const APP_SHELL = [
   './',
@@ -8,6 +8,23 @@ const APP_SHELL = [
   './fonts/Perfect-DOS-VGA-437.ttf',
   './fonts/m04.TTF',
   './fonts/Minecraft.ttf',
+  './fonts/PokemonGb-RAeo.ttf',
+  './assets/pokemon/bonus.mp3',
+  './assets/pokemon/clic.mp3',
+  './assets/pokemon/fallo.mp3',
+  './assets/pokemon/juego-1.mp3',
+  './assets/pokemon/nivel-juego.mp3',
+  './assets/pokemon/nivel-app.mp3',
+  './assets/pokemon/opening.mp3',
+  './assets/pokemon/portada-inicial.mp3',
+  './assets/pokemon/relampago.mp3',
+  './assets/pokemon/repaso-terminado.mp3',
+  './assets/pokemon/salir-juego.mp3',
+  './assets/pokemon/salir-menu.mp3',
+  './assets/pokemon/transicion.mp3',
+  './assets/pokemon/fondo-rojo.png',
+  './assets/pokemon/fondo-verde.png',
+  './assets/pokemon/fondo-moderno.png',
   './icon-192-v5.png',
   './icon-192-maskable-v5.png',
   './icon-512-v5.png',

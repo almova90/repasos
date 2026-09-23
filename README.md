@@ -4,7 +4,11 @@ PWA instalable para repasar conceptos con tarjetas, respuestas `yes`/`nope`, pis
 
 ## Modo arcade
 
-La versión 0.27 unifica las etiquetas «Difícil» y «Muy difícil» con la distribución de dominio, reserva los efectos de tarjeta para los ítems de dominio muy bajo y corrige Prisma con una capa sobredimensionada que cubre siempre la tarjeta. Añade controles para el multiplicador de dificultad, respuesta rápida, tamaños y cromatismo de niveles, título de ronda relámpago y nuevas velocidades de coronas. También sincroniza texto y fondo al subir de nivel, adapta los mensajes de progreso a cada sesión y convierte Atrás de Android en navegación interna mientras no se esté en la portada.
+La versión 0.28 conserva todos los ajustes arcade y los agrupa bajo «Opciones para desarrolladores — modo arcade». La experiencia ya no usa separadores de millares.
+
+## Modo Pokémon
+
+El modo Pokémon añade cuatro temas, tres fondos de juego, la fuente Pokémon GB y sonidos contextuales para clics, fallos, bonus, niveles, transiciones, salida, ronda relámpago y final de repaso. En Apariencia se puede elegir el tema, el comportamiento de la melodía de portada, la música de partida, los volúmenes y el color del texto durante el juego.
 
 ## Publicación en GitHub Pages
 
