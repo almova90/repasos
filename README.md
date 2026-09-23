@@ -4,7 +4,7 @@ PWA instalable para repasar conceptos con tarjetas, respuestas `yes`/`nope`, pis
 
 ## Modo arcade
 
-La versión 0.24 refuerza la persistencia de los ajustes arcade, añade controles de posición de la pantalla inicial, acceso opcional a Ajustes desde «Repaso terminado», trayectorias y ángulos configurables para los mensajes, una superrotación corregida y tres temas nuevos: Neón azul, Pulso y Pop eléctrico. La capa arcade sigue disponible tanto en Estándar como en Scroll, con XP, niveles, combos, rondas relámpago, dificultad, música, vibración y resumen detallado.
+La versión 0.26 repara la inicialización completa de los ajustes arcade, mantiene sus valores entre pantallas, recupera las opciones de desarrolladores y muestra los doce temas en dos filas. También triplica el volumen disponible, saca las etiquetas de dificultad fuera de las tarjetas compactas y mínimas, añade celebraciones de nivel con solo rayos o varias coronas concéntricas, simplifica la exportación e importación y deja todas las secciones arcade plegadas al abrir Ajustes.
 
 ## Publicación en GitHub Pages
 
