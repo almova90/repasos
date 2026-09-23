@@ -4,7 +4,7 @@ PWA instalable para repasar conceptos con tarjetas, respuestas `yes`/`nope`, pis
 
 ## Modo arcade
 
-La versión 0.26 repara la inicialización completa de los ajustes arcade, mantiene sus valores entre pantallas, recupera las opciones de desarrolladores y muestra los doce temas en dos filas. También triplica el volumen disponible, saca las etiquetas de dificultad fuera de las tarjetas compactas y mínimas, añade celebraciones de nivel con solo rayos o varias coronas concéntricas, simplifica la exportación e importación y deja todas las secciones arcade plegadas al abrir Ajustes.
+La versión 0.27 unifica las etiquetas «Difícil» y «Muy difícil» con la distribución de dominio, reserva los efectos de tarjeta para los ítems de dominio muy bajo y corrige Prisma con una capa sobredimensionada que cubre siempre la tarjeta. Añade controles para el multiplicador de dificultad, respuesta rápida, tamaños y cromatismo de niveles, título de ronda relámpago y nuevas velocidades de coronas. También sincroniza texto y fondo al subir de nivel, adapta los mensajes de progreso a cada sesión y convierte Atrás de Android en navegación interna mientras no se esté en la portada.
 
 ## Publicación en GitHub Pages
 
