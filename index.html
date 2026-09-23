@@ -282,8 +282,26 @@ body[data-pokemon="on"] .arcade-summary-stat strong{font-size:var(--pokemon-summ
 body[data-pokemon="on"] .arcade-summary-stat small{font-size:var(--pokemon-summary-label-size)!important;letter-spacing:var(--pokemon-letter-spacing)}
 body[data-pokemon="on"] .arcade-insights{font-size:var(--pokemon-summary-body-size)!important;letter-spacing:var(--pokemon-letter-spacing)}
 body[data-pokemon="on"] .arcade-summary-actions button{font-size:var(--pokemon-summary-action-size)!important;letter-spacing:var(--pokemon-letter-spacing)}
-body[data-pokemon="on"][data-pokemon-frame="on"] .swipe-item:not(.card-none),body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card:not(.none-scroll){border:3px solid #090909!important;border-radius:2px!important;background-color:#fff!important;background-image:radial-gradient(circle at 0 0,#d7192a 0 5px,#fff 5px 7px,#090909 7px 9px,transparent 9px),radial-gradient(circle at 100% 0,#d7192a 0 5px,#fff 5px 7px,#090909 7px 9px,transparent 9px),radial-gradient(circle at 0 100%,#d7192a 0 5px,#fff 5px 7px,#090909 7px 9px,transparent 9px),radial-gradient(circle at 100% 100%,#d7192a 0 5px,#fff 5px 7px,#090909 7px 9px,transparent 9px)!important;background-repeat:no-repeat!important;box-shadow:inset 0 0 0 4px #fff,inset 0 0 0 7px #090909,0 12px 26px rgba(38,0,4,.22)!important;color:#111!important}
-body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card.active:not(.none-scroll){color:#111!important}
+body[data-pokemon="on"][data-pokemon-frame="on"] .swipe-item:not(.card-none),body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card:not(.none-scroll){border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;backdrop-filter:none!important;color:#111!important;overflow:visible;padding:12%;aspect-ratio:125/70;height:auto!important;min-height:0!important}
+body[data-pokemon="on"][data-pokemon-frame="on"] .swipe-item.card-tall{width:100%}
+body[data-pokemon="on"][data-pokemon-frame="on"] .swipe-item.card-compact{width:88%}
+body[data-pokemon="on"][data-pokemon-frame="on"] .swipe-item.card-minimal{width:74%;max-width:430px}
+body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card:not(.none-scroll){width:min(100%,520px);margin-top:24px;margin-bottom:32px}
+body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card.compact-scroll{width:min(88%,460px)}
+body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card.minimal-scroll{width:min(74%,390px)}
+body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card.active:not(.none-scroll){color:#111!important;background:#fff!important}
+body[data-pokemon="on"][data-pokemon-frame="on"] .swipe-item:not(.card-none)>.word,body[data-pokemon="on"][data-pokemon-frame="on"] .scroll-card:not(.none-scroll)>.word{position:relative;z-index:3;color:#111!important}
+.pokemon-frame-svg{position:absolute;z-index:2;inset:0;width:100%;height:100%;display:block;overflow:visible;pointer-events:none;image-rendering:pixelated}
+.pokemon-frame-svg *{shape-rendering:crispEdges}
+body[data-pokemon="on"] .page-pad .settings-card .hint,body[data-pokemon="on"] .arcade-settings-preview small{display:none}
+body[data-pokemon="on"] .settings-card input[type="range"]{display:block;width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+body[data-pokemon="on"] .settings-row>*{min-width:0}
+body[data-pokemon="on"] .db-main strong,body[data-pokemon="on"] .simple-row .txt{font-size:var(--pokemon-menu-size);letter-spacing:var(--pokemon-letter-spacing)}
+body[data-pokemon="on"] .db-main small,body[data-pokemon="on"] .simple-row .meta,body[data-pokemon="on"] .metric .lbl,body[data-pokemon="on"] .metric-sub,body[data-pokemon="on"] .accuracy-copy small,body[data-pokemon="on"] .ring-copy small{font-size:var(--pokemon-small-size);letter-spacing:var(--pokemon-letter-spacing)}
+body[data-pokemon="on"] .metric .num{font-size:var(--pokemon-metric-size);letter-spacing:var(--pokemon-letter-spacing)}
+body[data-pokemon="on"] .distribution-card h3,body[data-pokemon="on"] .chart-card h3,body[data-pokemon="on"] .accuracy-copy strong,body[data-pokemon="on"] .ring-copy strong{font-size:var(--pokemon-section-title-size);letter-spacing:var(--pokemon-letter-spacing)}
+body[data-pokemon="on"] .empty,body[data-pokemon="on"] .hint,body[data-pokemon="on"] .accuracy-copy p,body[data-pokemon="on"] .ring-copy p,body[data-pokemon="on"] .game-empty p{font-size:var(--pokemon-body-size);letter-spacing:var(--pokemon-letter-spacing)}
+body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size);letter-spacing:var(--pokemon-letter-spacing)}
 
 
 /* Arcade 2.0 */
@@ -579,7 +597,7 @@ function applyTheme(){
   document.documentElement.style.setProperty('--pokemon-letter-spacing',`${settings.pokemon.letterSpacing/100}em`);
   const pokemonScale=settings.pokemon.textScale/100;
   const setPokemonPx=(name,base)=>document.documentElement.style.setProperty(name,`${Math.round(base*pokemonScale*100)/100}px`);
-  [['--pokemon-home-title-size',31],['--pokemon-home-meta-size',14],['--pokemon-launch-size',18],['--pokemon-section-title-size',15],['--pokemon-section-meta-size',12],['--pokemon-menu-size',14],['--pokemon-database-icon-size',12],['--pokemon-subhead-size',18],['--pokemon-settings-size',13],['--pokemon-control-size',11],['--pokemon-button-size',12]].forEach(([name,base])=>setPokemonPx(name,base));
+  [['--pokemon-home-title-size',31],['--pokemon-home-meta-size',14],['--pokemon-launch-size',18],['--pokemon-section-title-size',15],['--pokemon-section-meta-size',12],['--pokemon-menu-size',14],['--pokemon-database-icon-size',12],['--pokemon-subhead-size',18],['--pokemon-settings-size',13],['--pokemon-control-size',11],['--pokemon-button-size',12],['--pokemon-small-size',9],['--pokemon-body-size',11],['--pokemon-metric-size',23],['--pokemon-empty-title-size',24]].forEach(([name,base])=>setPokemonPx(name,base));
   for(const name of ['--bg','--game-bg','--surface','--game-card','--game-card-solid','--scroll-active-card','--accent','--header','--header-2'])document.body.style.removeProperty(name);
   const custom=settings.customThemes?.[themeName];
   if(custom){
@@ -909,6 +927,8 @@ const standardIcon = `<img class="standard-source" src="${standardIconExactPng}"
 const scrollModeIcon = `<img class="scroll-source" src="${scrollIconOriginalPng.replace('C1wWupJi','C1w/upJi').replace('B1x048cH','B1R048cH')}" alt="" aria-hidden="true">`;
 const xIcon = `<svg viewBox="0 0 32 32"><path d="M8 8 24 24M24 8 8 24"/></svg>`;
 const yesIcon = `<svg viewBox="0 0 32 32"><path d="m7 17 6 6L25 10"/></svg>`;
+const POKEMON_FRAME_SVG=`<svg class="pokemon-frame-svg" viewBox="0 0 125 70" preserveAspectRatio="none" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="125" height="70" fill="#fff"/><rect x="6" y="9" width="113" height="1" fill="#080808"/><rect x="6" y="11" width="113" height="2" fill="#080808"/><rect x="6" y="57" width="113" height="1" fill="#080808"/><rect x="6" y="59" width="113" height="2" fill="#080808"/><rect x="5" y="10" width="1" height="50" fill="#080808"/><rect x="7" y="10" width="1" height="50" fill="#080808"/><rect x="117" y="10" width="1" height="50" fill="#080808"/><rect x="119" y="10" width="1" height="50" fill="#080808"/><g transform="translate(3 7)"><path d="M2 0H5V1H6V2H7V5H6V6H5V7H2V6H1V5H0V2H1V1H2Z" fill="#080808"/><path d="M2 1H5V2H6V3H1V2H2Z" fill="#ef1717"/><path d="M1 4H6V5H5V6H2V5H1Z" fill="#fff"/><rect x="1" y="3" width="5" height="1" fill="#080808"/></g><g transform="translate(115 7)"><path d="M2 0H5V1H6V2H7V5H6V6H5V7H2V6H1V5H0V2H1V1H2Z" fill="#080808"/><path d="M2 1H5V2H6V3H1V2H2Z" fill="#ef1717"/><path d="M1 4H6V5H5V6H2V5H1Z" fill="#fff"/><rect x="1" y="3" width="5" height="1" fill="#080808"/></g><g transform="translate(3 56)"><path d="M2 0H5V1H6V2H7V5H6V6H5V7H2V6H1V5H0V2H1V1H2Z" fill="#080808"/><path d="M2 1H5V2H6V3H1V2H2Z" fill="#ef1717"/><path d="M1 4H6V5H5V6H2V5H1Z" fill="#fff"/><rect x="1" y="3" width="5" height="1" fill="#080808"/></g><g transform="translate(115 56)"><path d="M2 0H5V1H6V2H7V5H6V6H5V7H2V6H1V5H0V2H1V1H2Z" fill="#080808"/><path d="M2 1H5V2H6V3H1V2H2Z" fill="#ef1717"/><path d="M1 4H6V5H5V6H2V5H1Z" fill="#fff"/><rect x="1" y="3" width="5" height="1" fill="#080808"/></g></svg>`;
+function pokemonFrameMarkup(layout=settings.layout){return settings.pokemonMode&&settings.pokemon.classicFrame&&layout!=='none'?POKEMON_FRAME_SVG:'';}
 
 function btnIcon(icon, action, label){ return `<button type="button" class="icon-btn" data-action="${action}" aria-label="${label}">${icon}</button>`; }
 function answerButtons(mode){ return settings.showButtons?`<div class="answer-row"><button type="button" class="answer-btn no" data-${mode}-answer="nope" aria-label="No">${xIcon}</button><button type="button" class="answer-btn yes" data-${mode}-answer="yes" aria-label="Sí">${yesIcon}</button></div>`:''; }
@@ -924,6 +944,7 @@ async function go(view, options={}){
   if(view==='settings')settingsReturnView=options.origin||(origin==='game'||origin==='scroll'?origin:'home');
   currentView=view;
   if(view==='home')await renderHome(); else if(view==='game')await renderGame(!!options.preserve); else if(view==='scroll')await renderScroll(!!options.preserve); else if(view==='add')await renderAdd(); else if(view==='database')await renderDatabase(); else if(view==='stats')await renderStats(); else if(view==='settings')await renderSettings();
+  if(settings.pokemonMode)stripPokemonUiQuotes(app);
   startUsage();
   if(view==='home'&&pendingArcadeSummary){const summary=pendingArcadeSummary;requestAnimationFrame(()=>showArcadeSummary(summary));}
   else updatePokemonAmbient();
@@ -1087,10 +1108,10 @@ function renderGameBody(){
   if(!String(currentItem.hint||'').trim())currentFlipped=false;
   const visible=previewItems.slice(0,previewCount());
   const fadeDepth=stackFadeIn&&visible.length?visible.length:null;stackFadeIn=false;
-  const behind=visible.map((it,i)=>({it,depth:i+1})).reverse().map(({it,depth})=>`<div class="swipe-item ${layoutClass()} next${depth===fadeDepth?' stack-new':''}" data-depth="${depth}" style="${previewVars(depth)}"><div class="word">${esc(it.text)}</div></div>`).join('');
+  const behind=visible.map((it,i)=>({it,depth:i+1})).reverse().map(({it,depth})=>`<div class="swipe-item ${layoutClass()} next${depth===fadeDepth?' stack-new':''}" data-depth="${depth}" style="${previewVars(depth)}">${pokemonFrameMarkup()}<div class="word">${esc(it.text)}</div></div>`).join('');
   const entering=fadeInNext?' fade-in':'';fadeInNext=false;
   const shown=currentFlipped?currentItem.hint:currentItem.text;
-  body.innerHTML=`<div class="game-stage"><div class="swipe-stack">${behind}<div class="swipe-item ${layoutClass()} ${arcadeFeaturedClass(currentItem)} current${entering}" id="currentCard">${arcadeFeatureMarkup(currentItem)}${arcadeDifficultyMarkup(currentItem)}<div class="word${currentFlipped?' hint-word':''}">${esc(shown)}</div></div></div></div>`;
+  body.innerHTML=`<div class="game-stage"><div class="swipe-stack">${behind}<div class="swipe-item ${layoutClass()} ${arcadeFeaturedClass(currentItem)} current${entering}" id="currentCard">${pokemonFrameMarkup()}${arcadeFeatureMarkup(currentItem)}${arcadeDifficultyMarkup(currentItem)}<div class="word${currentFlipped?' hint-word':''}">${esc(shown)}</div></div></div></div>`;
   bindSwipe($('#currentCard'));
 }
 function bindAnswerButtons(){ $$('[data-game-answer]').forEach(b=>safeClick(b,()=>commitSwipe(b.dataset.gameAnswer))); }
@@ -1234,7 +1255,7 @@ async function renderScroll(preserve=false){
   unlockScrollSelection();
   let items=await getAll(); items.sort((a,b)=>a.dueAt-b.dueAt || b.createdAt-a.createdAt);
   const scrollClass=scrollLayoutClass();
-  app.innerHTML=`<div class="scroll-game">${gameTop('scroll')}${arcadeHudMarkup()}<div class="scroll-feed" id="scrollFeed">${items.length?items.map(it=>`<div class="scroll-card ${scrollClass} ${arcadeFeaturedClass(it)}" data-id="${it.id}" data-text="${escAttr(it.text)}" data-hint="${escAttr(it.hint||'')}">${arcadeFeatureMarkup(it)}${arcadeDifficultyMarkup(it)}<div class="word">${esc(it.text)}</div></div>`).join(''):'<div class="game-empty"><div class="box"><h2>La base está vacía</h2><p>Añade elementos antes de usar el modo scroll.</p><button type="button" class="primary" id="emptyAdd">Abrir base de datos</button></div></div>'}</div>${items.length?answerButtons('scroll'):''}${arcadeFxMarkup()}</div>`;
+  app.innerHTML=`<div class="scroll-game">${gameTop('scroll')}${arcadeHudMarkup()}<div class="scroll-feed" id="scrollFeed">${items.length?items.map(it=>`<div class="scroll-card ${scrollClass} ${arcadeFeaturedClass(it)}" data-id="${it.id}" data-text="${escAttr(it.text)}" data-hint="${escAttr(it.hint||'')}">${pokemonFrameMarkup()}${arcadeFeatureMarkup(it)}${arcadeDifficultyMarkup(it)}<div class="word">${esc(it.text)}</div></div>`).join(''):'<div class="game-empty"><div class="box"><h2>La base está vacía</h2><p>Añade elementos antes de usar el modo scroll.</p><button type="button" class="primary" id="emptyAdd">Abrir base de datos</button></div></div>'}</div>${items.length?answerButtons('scroll'):''}${arcadeFxMarkup()}</div>`;
   safeClick($('[data-action="scroll-back"]'),()=>go('home'));safeClick($('[data-action="scroll-settings"]'),()=>go('settings',{origin:'scroll'}));safeClick($('#emptyAdd'),()=>go('database'));
   const cards=$$('.scroll-card'); if(cards.length){ const wanted=preserve&&scrollActiveId?cards.find(c=>c.dataset.id===scrollActiveId):null;setScrollActive(wanted||cards[0]); const feed=$('#scrollFeed');let centerFrame=0;const chooseCentered=()=>{centerFrame=0;if(scrollSelectionLockId)return;const box=feed.getBoundingClientRect(),middle=box.top+box.height/2;let best=null,distance=Infinity;for(const card of cards){if(card.classList.contains('returning'))continue;const r=card.getBoundingClientRect(),d=Math.abs(r.top+r.height/2-middle);if(d<distance){distance=d;best=card;}}if(best)setScrollActive(best);};const scheduleCenter=()=>{if(!centerFrame)centerFrame=requestAnimationFrame(chooseCentered);};const noteScroll=()=>{scrollMotionUntil=performance.now()+240;scheduleCenter();};feed.addEventListener('scroll',noteScroll,{passive:true});const io=new IntersectionObserver(scheduleCenter,{root:feed,threshold:[.25,.5,.75]});cards.forEach(c=>io.observe(c));
     $$('[data-scroll-answer]').forEach(b=>safeClick(b,()=>answerScroll(b.dataset.scrollAnswer,$(`.scroll-card[data-id="${scrollActiveId}"]`)))); cards.forEach(c=>bindScrollCard(c));bindScrollPinch($('.scroll-game'));if(wanted)setTimeout(()=>wanted.scrollIntoView({block:'center'}),0); }startArcadeTimer();refreshArcadeMusic();
