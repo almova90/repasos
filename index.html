@@ -457,8 +457,10 @@ let pokemonLoopAudio = null;
 let pokemonLoopName = '';
 let pokemonWelcomePending = true;
 let pokemonIntroAudio = null;
+let startupReadyPromise = Promise.resolve();
 
 const SETTINGS_STORAGE_KEY='repaso-settings';
+const HOME_SUMMARY_KEY='repaso-home-summary-v1';
 const SETTINGS_PINS_KEY='repaso-settings-pins-v1';
 const THEME_KEYS=['violet','ink','teal','sand','aurora','arcade','neon','pulse','pop','kaleido','acid','fiesta'];
 const POKEMON_THEME_KEYS=['pokemon-red','pokemon-green','pokemon-modern','pokemon-pop'];
@@ -955,6 +957,7 @@ function answerButtons(mode){ return settings.showButtons?`<div class="answer-ro
 // ---------- Navigation ----------
 async function go(view, options={}){
   if(view==='settings'&&!$('#editModal')?.classList.contains('hidden')&&editOriginView==='game')return;
+  if(view!=='home'&&startupReadyPromise)await startupReadyPromise;
   const origin=currentView;
   if(origin==='home'&&view!=='home'&&pokemonIntroAudio){fadePokemonAudio(pokemonIntroAudio,150);pokemonIntroAudio=null;}
   flushUsage();
@@ -969,11 +972,14 @@ async function go(view, options={}){
   else updatePokemonAmbient();
 }
 
-async function renderHome(){
-  const cards=await getAll(), items=reviewUnitsFromCards(cards), now=Date.now(), due=items.filter(x=>(x.dueAt||0)<=now).length;
-  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.29.0</span><div class="header-copy home-title"><h1>Repasos rápidos${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${cards.length} tarjetas ${settings.pokemonMode?'|':'·'} ${due} pendientes</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" data-go="game"><div class="mark">${standardIcon}</div><h3>Estándar</h3></button><button type="button" class="panel launch scroll-mode" data-go="scroll"><div class="mark">${scrollModeIcon}</div><h3>Scroll</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
-  bindGo();
-  const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.29.0';
+function readCachedHomeSummary(){try{const value=JSON.parse(localStorage.getItem(HOME_SUMMARY_KEY)||'{}');return {cards:Number.isFinite(Number(value.cards))?Number(value.cards):null,due:Number.isFinite(Number(value.due))?Number(value.due):null};}catch{return {cards:null,due:null};}}
+function homeMetaText(cards,due){const cardText=cards==null?'…':String(cards),dueText=due==null?'…':String(due);return `${cardText} tarjetas ${settings.pokemonMode?'|':'·'} ${dueText} pendientes`;}
+async function renderHome(loadCounts=true){
+  const cached=readCachedHomeSummary();
+  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.29.0</span><div class="header-copy home-title"><h1>Repasos rápidos${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" data-go="game"><div class="mark">${standardIcon}</div><h3>Estándar</h3></button><button type="button" class="panel launch scroll-mode" data-go="scroll"><div class="mark">${scrollModeIcon}</div><h3>Scroll</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
+  bindGo();const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.29.0';if(settings.pokemonMode)stripPokemonUiQuotes(app);
+  if(!loadCounts)return;
+  try{const cards=await getAll(),items=reviewUnitsFromCards(cards),now=Date.now(),due=items.filter(x=>(x.dueAt||0)<=now).length;localStorage.setItem(HOME_SUMMARY_KEY,JSON.stringify({cards:cards.length,due,updatedAt:now}));if(currentView==='home'){const meta=$('.home-title p');if(meta)meta.textContent=homeMetaText(cards.length,due);}}catch{}
 }
 function subhead(title,right=''){ return `<div class="subhead">${btnIcon(chevronIcon,'back','Volver')}<h2>${title}</h2><div class="spacer"></div>${right}</div>`; }
 function safeClick(el,fn){if(!el)return;el.onclick=e=>{e.preventDefault();e.stopPropagation();fn(e);};}
@@ -1620,7 +1626,7 @@ function setupPwaUpdates(){
     button.disabled=true;button.classList.add('updating');button.setAttribute('aria-label','Actualizando');waiting.postMessage({type:'SKIP_WAITING'});
   });
 }
-setupPwaUpdates();
+if('requestIdleCallback' in window)requestIdleCallback(()=>setupPwaUpdates(),{timeout:1500});else setTimeout(setupPwaUpdates,250);
 function esc(s){ return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m])); }
 function escAttr(s){return esc(s).replace(/`/g,'&#096;')}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
@@ -1653,7 +1659,9 @@ function setupAndroidBackNavigation(){
 
 // Start
 setupAndroidBackNavigation();
-(async()=>{if(settings.demoMode)await ensureDemoDatabase();else await installInitialDatabase();await renderHome();})();
+renderHome(false);
+startupReadyPromise=(async()=>{if(settings.demoMode)await ensureDemoDatabase();else await installInitialDatabase();})();
+startupReadyPromise.then(()=>{if(currentView==='home')renderHome(true);}).catch(()=>{if(currentView==='home')renderHome(true);});
 </script>
 </body>
 </html>
