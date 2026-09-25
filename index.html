@@ -408,6 +408,7 @@ const dayToast = $('#dayToast');
 const DAY = 86400000;
 const MIN = 60000;
 const RECENT_LIMIT = 7;
+const SIBLING_GAP = 18;
 let currentView = 'home';
 let currentItem = null, previewItems = [], recentIds = [];
 let currentFlipped = false;
@@ -881,7 +882,7 @@ function scoreWeight(it, now){
 function weightedPick(arr){ const sum=arr.reduce((a,x)=>a+x.w,0);let r=Math.random()*sum;for(const x of arr){r-=x.w;if(r<=0)return x.it}return arr[arr.length-1]?.it||null; }
 async function selectNext(exclude=[]){
   let items=await getReviewUnits(); if(!items.length)return null;
-  const now=Date.now(),explicit=new Set(exclude.map(reviewCardId).filter(Boolean)),recent=new Set(recentIds.slice(-RECENT_LIMIT)),preferredBlocked=new Set([...explicit,...recent]);
+  const now=Date.now(),explicit=new Set(exclude.map(reviewCardId).filter(Boolean)),recent=new Set(recentIds.slice(-SIBLING_GAP)),preferredBlocked=new Set([...explicit,...recent]);
   let due=items.filter(it=>(it.dueAt||0)<=now&&!preferredBlocked.has(it.cardId));
   if(!due.length)due=items.filter(it=>(it.dueAt||0)<=now&&!explicit.has(it.cardId));
   if(!due.length)due=items.filter(it=>(it.dueAt||0)<=now);
@@ -1276,7 +1277,7 @@ async function commitSwipe(answer,fromX=0){ if(committing||!currentItem)return;c
 }
 
 // ---------- Scroll ----------
-function spreadSiblingUnits(units,gap=RECENT_LIMIT){
+function spreadSiblingUnits(units,gap=SIBLING_GAP){
   const remaining=[...(units||[])].sort((a,b)=>(a.dueAt||0)-(b.dueAt||0)||(b.createdAt||0)-(a.createdAt||0)),out=[];
   while(remaining.length){const blocked=new Set(out.slice(-gap).map(unit=>unit.cardId));let index=remaining.findIndex(unit=>!blocked.has(unit.cardId));if(index<0)index=0;out.push(remaining.splice(index,1)[0]);}
   return out;
