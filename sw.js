@@ -1,4 +1,4 @@
-const APP_VERSION = '0.31.4';
+const APP_VERSION = '0.31.5';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const APP_SHELL = [
   './',
