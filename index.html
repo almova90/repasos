@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest-v5.webmanifest" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192-maskable-v5.png" />
 <link rel="apple-touch-icon" href="./icon-192-maskable-v5.png" />
-<title>Repasos — v0.31.3</title>
+<title>Repasos — v0.31.4</title>
 <style>
 @font-face{font-family:ArcadePerfect;src:url('./fonts/Perfect-DOS-VGA-437.ttf') format('truetype');font-display:swap}
 @font-face{font-family:ArcadeM04;src:url('./fonts/m04.TTF') format('truetype');font-display:swap}
@@ -348,14 +348,13 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
 .edit-format-toolbar small{margin-left:3px;color:var(--muted);font-size:9px}
 .edit-format-btn{min-width:34px;height:30px;padding:0 9px;border:1px solid var(--line);border-radius:9px;background:var(--surface-2);color:var(--ink);font-size:13px;font-weight:750;cursor:pointer}
 .edit-format-btn:active{transform:scale(.96)}
-.word small,.db-main strong small,.simple-row .txt small{font-size:.7em;line-height:inherit}
+.word small,.db-main strong small,.simple-row .txt small{font-size:.75em;line-height:inherit}
 .description-text{display:inline}
 .stats-level-progress{padding:14px 16px;margin-bottom:14px}
-.stats-level-progress-top,.stats-level-progress-meta{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.stats-level-progress-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .stats-level-progress-top strong{font-size:14px}
-.stats-level-progress-top span,.stats-level-progress-meta{font-size:10px;color:var(--muted)}
-.stats-level-progress-meta{margin-top:5px}
-.stats-level-track{height:12px;margin-top:9px;overflow:hidden;border-radius:999px;background:var(--surface-2);box-shadow:inset 0 0 0 1px rgba(20,22,30,.05)}
+.stats-level-progress-top span{font-size:10px;color:var(--muted)}
+.stats-level-track{height:12px;margin-top:8px;overflow:hidden;border-radius:999px;background:var(--surface-2);box-shadow:inset 0 0 0 1px rgba(20,22,30,.05)}
 .stats-level-fill{height:100%;width:calc(var(--stats-progress,0)*1%);border-radius:inherit;background:var(--yes);transition:width .35s cubic-bezier(.2,.8,.22,1)}
 .emoji-flag{font-family:"Noto Color Emoji","Segoe UI Emoji","Apple Color Emoji",sans-serif!important;font-style:normal!important;font-weight:400!important;letter-spacing:normal!important}
 </style>
@@ -364,7 +363,7 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
 <div class="app" id="app"></div>
 <div class="toast" id="toast"></div>
 <div class="day-toast" id="dayToast" role="status" aria-live="polite"></div>
-<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.31.3</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
+<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.31.4</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
 <div class="modal hidden" id="editModal" role="dialog" aria-modal="true">
   <div class="modal-card">
     <h3 id="editModalTitle">Editar tarjeta</h3>
@@ -871,7 +870,7 @@ function showArcadeFeedback(result,target){
   if(target){const colors=result.correct?['drop-shadow(0 0 0 rgba(0,232,239,0))','drop-shadow(0 0 18px rgba(0,232,239,.85))','drop-shadow(0 0 0 rgba(0,232,239,0))']:['brightness(1)','brightness(.72) saturate(1.8)','brightness(1)'];target.animate([{filter:colors[0]},{filter:colors[1]},{filter:colors[2]}],{duration:result.kind==='jackpot'?520:280,easing:'steps(3,end)'});}
 }
 function arcadeHomeMarkup(xpOverride=null){if(!settings.arcadeMode)return'';const xp=xpOverride==null?loadArcadeProgress().xp:xpOverride,state=globalLevelState(xp),level=arcadeUiText('Nivel',settings.arcade.hudFont);return `<div class="arcade-home ${settings.arcade.homeXpStyle==='card'?'card':''}"><div class="arcade-home-top"><span class="arcade-home-level" data-global-level>${level} ${state.level}</span><span data-global-xp>${formatXp(xp)} XP</span></div><div class="arcade-xp-track"><div class="arcade-xp-fill" data-global-fill style="--arcade-progress:${state.progress*100}%"></div></div></div>`;}
-function arcadeStatsLevelMarkup(){if(!settings.arcadeMode)return'';const progress=loadArcadeProgress(),state=globalLevelState(progress.xp);return `<div class="panel stats-level-progress"><div class="stats-level-progress-top"><strong>Nivel ${state.level}</strong><span>${formatXp(progress.xp)} XP totales</span></div><div class="stats-level-progress-meta"><span>XP</span><span>${formatXp(state.within)} / ${formatXp(state.needed)} XP</span></div><div class="stats-level-track"><div class="stats-level-fill" style="--stats-progress:${state.progress*100}"></div></div></div>`;}
+function arcadeStatsLevelMarkup(){if(!settings.arcadeMode)return'';const progress=loadArcadeProgress(),state=globalLevelState(progress.xp);return `<div class="panel stats-level-progress"><div class="stats-level-progress-top"><strong>Nivel ${state.level}</strong><span>${formatXp(progress.xp)} XP</span></div><div class="stats-level-track"><div class="stats-level-fill" style="--stats-progress:${state.progress*100}"></div></div></div>`;}
 function arcadeStatsMetricMarkup(){if(!settings.arcadeMode)return'';const progress=loadArcadeProgress();return `<div class="panel metric"><div class="num">${formatXp(progress.difficultyBonusXp||0)}</div><div class="lbl">XP por dificultad</div></div><div class="panel metric"><div class="num">${formatXp(progress.lightningBonusXp||0)}</div><div class="lbl">XP relámpago</div></div><div class="panel metric"><div class="num">${formatXp(progress.levelBonusXp||0)}</div><div class="lbl">XP por niveles</div></div>`;}
 function summaryInsightMarkup(insight,index){const list=(insight.items||[]).map(item=>`<li><strong>${esc(item.text)}</strong>${item.hint?`<small>${esc(item.hint)}</small>`:''}</li>`).join(''),title=arcadeUiText(insight.title,settings.arcade.summaryBodyFont);return `<div class="arcade-insight"><button type="button" class="arcade-insight-toggle" data-insight="${index}">${esc(title)}</button>${list?`<ul class="arcade-insight-detail">${list}</ul>`:''}</div>`;}
 function formatSessionDuration(seconds){const min=Math.floor(seconds/60),sec=seconds%60;return min?`${min}m ${String(sec).padStart(2,'0')}s`:`${sec}s`;}
@@ -998,8 +997,8 @@ function readCachedHomeSummary(){try{const value=JSON.parse(localStorage.getItem
 function homeMetaText(cards,due){const cardText=cards==null?'…':String(cards),dueText=due==null?'…':String(due);return `${cardText} tarjetas ${settings.pokemonMode?'|':'·'} ${dueText} pendientes`;}
 async function renderHome(loadCounts=true){
   const cached=readCachedHomeSummary();
-  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.31.3</span><div class="header-copy home-title"><h1>Repasos rápidos${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" data-go="game"><div class="mark">${standardIcon}</div><h3>Estándar</h3></button><button type="button" class="panel launch scroll-mode" data-go="scroll"><div class="mark">${scrollModeIcon}</div><h3>Scroll</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
-  bindGo();const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.31.3';if(settings.pokemonMode)stripPokemonUiQuotes(app);
+  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.31.4</span><div class="header-copy home-title"><h1>Repasos rápidos${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" data-go="game"><div class="mark">${standardIcon}</div><h3>Estándar</h3></button><button type="button" class="panel launch scroll-mode" data-go="scroll"><div class="mark">${scrollModeIcon}</div><h3>Scroll</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
+  bindGo();const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.31.4';if(settings.pokemonMode)stripPokemonUiQuotes(app);
   if(!loadCounts)return;
   try{const cards=await getAll(),now=Date.now(),due=cards.filter(card=>{const forward=reviewStateFor(card,'forward');if((forward.dueAt||0)<=now)return true;if(cardBidirectional(card)){const reverse=reviewStateFor(card,'reverse');if((reverse.dueAt||0)<=now)return true;}return false;}).length;localStorage.setItem(HOME_SUMMARY_KEY,JSON.stringify({cards:cards.length,due,updatedAt:now}));if(currentView==='home'){const meta=$('.home-title p');if(meta)meta.textContent=homeMetaText(cards.length,due);}}catch{}
 }
@@ -1656,7 +1655,7 @@ if('requestIdleCallback' in window)requestIdleCallback(()=>setupPwaUpdates(),{ti
 function esc(s){ return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m])); }
 function richText(value){let html=esc(value);html=html.replace(/&lt;(\/?)((?:i|em|small))&gt;/gi,(_,slash,tag)=>{tag=tag.toLowerCase()==='em'?'i':tag.toLowerCase();return '<'+slash+tag+'>';});html=html.replace(/\((sin\. temp\.|sin\.|lat\.|ing\.)\)/gi,'<small>($1)</small>');html=html.replace(/([\u{1F1E6}-\u{1F1FF}]{2})/gu,'<span class="emoji-flag">$1</span>');return html;}
 function plainWords(value){return String(value||'').replace(/<[^>]*>/g,' ').trim().split(/\s+/).filter(Boolean).length;}
-function descriptionScale(value){const words=plainWords(value);if(words<=5)return 1;return Math.max(.2,1-Math.ceil((words-5)/5)*.2);}
+function descriptionScale(value){const words=plainWords(value);if(words<=5)return 1;if(words<=10)return .95;if(words<=15)return .90;return .85;}
 function descriptionMarkup(value){const scale=descriptionScale(value);return scale===1?richText(value):`<span class="description-text" style="font-size:${Math.round(scale*100)}%">${richText(value)}</span>`;}
 function reviewFaceMarkup(item,side='text'){const value=side==='hint'?item?.hint:item?.text,isDescription=item?.direction==='reverse'?side==='text':side==='hint';return isDescription?descriptionMarkup(value):richText(value);}
 function escAttr(s){return esc(s).replace(/`/g,'&#096;')}
