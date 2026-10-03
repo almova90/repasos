@@ -39,16 +39,16 @@
     });
   }
 
-  async function post(action, payload) {
+  function post(action, payload) {
     const body = Object.assign({action}, payload || {});
-    await fetch(WEBAPP, {
+    fetch(WEBAPP, {
       method: 'POST',
       mode: 'no-cors',
       cache: 'no-store',
       redirect: 'follow',
       headers: {'Content-Type':'text/plain;charset=UTF-8'},
       body: JSON.stringify(body)
-    });
+    }).catch(() => {});
     return true;
   }
 
