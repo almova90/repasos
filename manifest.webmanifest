@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Repasos",
-  "short_name": "Repasos",
-  "description": "Repasos rápidos de conceptos mediante tarjetas y repetición espaciada.",
+  "name": "Aprendizaje",
+  "short_name": "Aprendizaje",
+  "description": "Aprendizaje mediante tarjetas, mazos, audio y repetición espaciada.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",
