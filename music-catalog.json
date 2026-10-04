@@ -1,0 +1,894 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-04T18:50:00.000Z",
+  "items": [
+    {
+      "path": "music/1. Renacimiento/Byrd - Lord Willobies Welcome Home (My Lady Nevells Booke 33).mp3",
+      "displayName": "William Byrd — Lord Willobies Welcome Home (My Ladye Nevells Booke, n.º 33)",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Byrd - The Barleye Breake (My Lady Nevells Booke 6).mp3",
+      "displayName": "William Byrd — The Barleye Breake (My Ladye Nevells Booke, n.º 6)",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Byrd - The Marche Before the Battell (My Lady Nevells Booke).mp3",
+      "displayName": "William Byrd — The Marche Before the Battell (My Ladye Nevells Booke)",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Des Prez - Petite Camusette.mp3",
+      "displayName": "Josquin des Prez — Petite Camusette",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - Behold a wonder here.mp3",
+      "displayName": "John Dowland — Behold a wonder here",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - Can She Excuse (P 89).mp3",
+      "displayName": "John Dowland — Can She Excuse, P 89",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - Can she excuse my wrongs (f1).mp3",
+      "displayName": "John Dowland — Can She Excuse My Wrongs? — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - Can she excuse my wrongs.mp3",
+      "displayName": "John Dowland — Can She Excuse My Wrongs? — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - Humor say what mak'st thou here.mp3",
+      "displayName": "John Dowland — Humor, Say What Mak’st Thou Here?",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - Lady Hunsdon's Puffe (P 54).mp3",
+      "displayName": "John Dowland — Lady Hunsdon’s Puffe, P 54",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - My Lord Willoughby's Welcome Home (P 66).mp3",
+      "displayName": "John Dowland — My Lord Willoughby’s Welcome Home, P 66",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - The Forg Galliard (P 23).mp3",
+      "displayName": "John Dowland — The Frog Galliard, P 23",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - The Frog Galliard (P 90).mp3",
+      "displayName": "John Dowland — The Frog Galliard, P 90",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - The RIght Honourable the Lady Clifton's Spirit (P 45) (f1).mp3",
+      "displayName": "John Dowland — The Right Honourable the Lady Clifton’s Spirit, P 45 — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dowland - The RIght Honourable the Lady Clifton's Spirit (P 45) (f2).mp3",
+      "displayName": "John Dowland — The Right Honourable the Lady Clifton’s Spirit, P 45 — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Downland - Capitain Candishes his galyard (P 21).mp3",
+      "displayName": "John Dowland — Capitain Candishe His Galyard, P 21",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Downland - Galliard (P 20).mp3",
+      "displayName": "John Dowland — Dowland’s Galliard, P 20",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dufay - Belle veullies moy retenir.mp3",
+      "displayName": "Guillaume Dufay — Belle, veulliez moy retenir",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/1. Renacimiento/Dufay - Je ne suy plus tel que souloy.mp3",
+      "displayName": "Guillaume Dufay — Je ne suy plus tel que souloie",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach - BWV 147 - Jesus bleibet meine Freude.mp3",
+      "displayName": "Bach — Herz und Mund und Tat und Leben, BWV 147 — «Jesus bleibet meine Freude»",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach - BWV 299 Dir, dir, Jehova, will ich singen.mp3",
+      "displayName": "Bach — «Dir, dir, Jehova, will ich singen», BWV 299",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach - BWV 512 Gib dich zufrieden und sei stille.mp3",
+      "displayName": "Bach — «Gib dich zufrieden und sei stille», BWV 512",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach - BWV 515 So oft ich meine Tobackspfeife.mp3",
+      "displayName": "Bach — «So oft ich meine Tobackspfeife», BWV 515",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach - Tocata y Fuga en Re Menor.mp3",
+      "displayName": "Bach — Tocata y fuga en re menor, BWV 565",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1060 mov 3.ogg",
+      "displayName": "Bach — Concierto para dos clavecines en do menor, BWV 1060 — III. Allegro",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1060 mov1.ogg",
+      "displayName": "Bach — Concierto para dos clavecines en do menor, BWV 1060 — I. Allegro",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1061 mov 3.ogg",
+      "displayName": "Bach — Concierto para dos clavecines en do mayor, BWV 1061 — III. Vivace",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1066 mov 3 gavotte.ogg",
+      "displayName": "Bach — Suite orquestal n.º 1 en do mayor, BWV 1066 — III. Gavota",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1066 mov 5 minueto.mp3",
+      "displayName": "Bach — Suite orquestal n.º 1 en do mayor, BWV 1066 — V. Minueto",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1067 mov 7 badinerie.mp3",
+      "displayName": "Bach — Suite orquestal n.º 2 en si menor, BWV 1067 — VII. Badinerie",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1068 mov 1 obertura.mp3",
+      "displayName": "Bach — Suite orquestal n.º 3 en re mayor, BWV 1068 — I. Obertura",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1068 mov 2 aire.mp3",
+      "displayName": "Bach — Suite orquestal n.º 3 en re mayor, BWV 1068 — II. Aire",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1068 mov 3 gavota.mp3",
+      "displayName": "Bach — Suite orquestal n.º 3 en re mayor, BWV 1068 — III. Gavota",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1068 mov 4 bourrée.mp3",
+      "displayName": "Bach — Suite orquestal n.º 3 en re mayor, BWV 1068 — IV. Bourrée",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1068 mov 5 giga.mp3",
+      "displayName": "Bach — Suite orquestal n.º 3 en re mayor, BWV 1068 — V. Giga",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1079 Ofrenda musical - canon 1 a 2 'cangrejo'.mp3",
+      "displayName": "Bach — Ofrenda musical, BWV 1079 — Canon a 2 cancrizans",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1079 Ofrenda musical - tema regio.mp3",
+      "displayName": "Bach — Ofrenda musical, BWV 1079 — Tema regio",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1080 Arte de la fuga - fuga 1.mp3",
+      "displayName": "Bach — El arte de la fuga, BWV 1080 — Contrapunctus I",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 1080 El Arte de la Fuga - canon 3 (a la duodécima).mp3",
+      "displayName": "Bach — El arte de la fuga, BWV 1080 — Canon a la duodécima",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 14 canones 1087 canon 5.mp3",
+      "displayName": "Bach — 14 cánones sobre el bajo de las Variaciones Goldberg, BWV 1087 — V. Canon duplex à 4",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach 14 canones 1087 canon 7.mp3",
+      "displayName": "Bach — 14 cánones sobre el bajo de las Variaciones Goldberg, BWV 1087 — VII. Canon simplex à 3",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 1 BWV 1046  mov 1.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 1, BWV 1046 — I",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 1 BWV 1046 mov 2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 1, BWV 1046 — II. Adagio",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 1 BWV 1046 mov 3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 1, BWV 1046 — III. Allegro",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 1 BWV 1046 mov 4.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 1, BWV 1046 — IV. Menuetto",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 2 BWV 1047 mov 1.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 2, BWV 1047 — I",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 2 BWV 1047 mov 2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 2, BWV 1047 — II. Andante",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 2 BWV 1047 mov 3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 2, BWV 1047 — III. Allegro assai",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 3 BWV 1048 mov 1 f2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 3, BWV 1048 — I — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 3 BWV 1048 mov 1.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 3, BWV 1048 — I — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 3 BWV 1048 mov 3 f2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 3, BWV 1048 — III. Allegro — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 3 BWV 1048 mov 3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 3, BWV 1048 — III. Allegro — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 4 BWV 1049 mov 1 f2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 4, BWV 1049 — I. Allegro — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 4 BWV 1049 mov 1.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 4, BWV 1049 — I. Allegro — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 4 BWV 1049 mov 3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 4, BWV 1049 — III. Presto",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 1 f2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — I. Allegro — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 1 f3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — I. Allegro — F3",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 1.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — I. Allegro — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — II. Affettuoso",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 3 f2.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — III. Allegro — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 3 f3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — III. Allegro — F3",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 5 BWV 1050 mov 3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 5, BWV 1050 — III. Allegro — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Brandeburg Concerto no 6 BWV 1051 mov 3.mp3",
+      "displayName": "Bach — Concierto de Brandeburgo n.º 6, BWV 1051 — III. Allegro",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 1007 Suite para violonchelo nº 1 en sol mayor.mp3",
+      "displayName": "Bach — Suite para violonchelo n.º 1 en sol mayor, BWV 1007",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 140 - Wachet auf, ruft uns die Stimme (Sleepers Awake).mp3",
+      "displayName": "Bach — «Wachet auf, ruft uns die Stimme», BWV 140",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 772 - Invención 01 en do mayor (f1).mp3",
+      "displayName": "Bach — Invención n.º 1 en do mayor, BWV 772 — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 772 - Invención 01 en do mayor (f2).mp3",
+      "displayName": "Bach — Invención n.º 1 en do mayor, BWV 772 — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 773 - Invención 2 .mp3",
+      "displayName": "Bach — Invención n.º 2 en do menor, BWV 773",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 774 - Invención 3.mp3",
+      "displayName": "Bach — Invención n.º 3 en re mayor, BWV 774",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 775 - Invención 4.mp3",
+      "displayName": "Bach — Invención n.º 4 en re menor, BWV 775",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 776 - Invención 5.mp3",
+      "displayName": "Bach — Invención n.º 5 en mi bemol mayor, BWV 776",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 779 - Invención 8.mp3",
+      "displayName": "Bach — Invención n.º 8 en fa mayor, BWV 779",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 781 - Invención 10.mp3",
+      "displayName": "Bach — Invención n.º 10 en sol mayor, BWV 781",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 783 - Invención 12.mp3",
+      "displayName": "Bach — Invención n.º 12 en la mayor, BWV 783",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 785 - Invención 14.mp3",
+      "displayName": "Bach — Invención n.º 14 en si bemol mayor, BWV 785",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 786 - Invención 15.mp3",
+      "displayName": "Bach — Invención n.º 15 en si menor, BWV 786",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 787 - Sinfonía 1.mp3",
+      "displayName": "Bach — Sinfonía n.º 1 en do mayor, BWV 787",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 789 - Sinfonía 3.mp3",
+      "displayName": "Bach — Sinfonía n.º 3 en re mayor, BWV 789",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 794 - Sinfonía 8.mp3",
+      "displayName": "Bach — Sinfonía n.º 8 en fa mayor, BWV 794",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 797 - Sinfonía 11.mp3",
+      "displayName": "Bach — Sinfonía n.º 11 en sol menor, BWV 797",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 798 - Sinfonía 12.mp3",
+      "displayName": "Bach — Sinfonía n.º 12 en la mayor, BWV 798",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 801 - Sinfonía 15.mp3",
+      "displayName": "Bach — Sinfonía n.º 15 en si menor, BWV 801",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 846 - Fuga WTK.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Fuga n.º 1 en do mayor, BWV 846",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 846 - Preludio WTK.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Preludio n.º 1 en do mayor, BWV 846",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 847 - Fuga 2 WTK.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Fuga n.º 2 en do menor, BWV 847",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 847 - Preludio WTK.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Preludio n.º 2 en do menor, BWV 847",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 848 - Fuga 3.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Fuga n.º 3 en do sostenido mayor, BWV 848",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 848 - Preludio 3.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Preludio n.º 3 en do sostenido mayor, BWV 848",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 849 - Fuga 4.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Fuga n.º 4 en do sostenido menor, BWV 849",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 850 - Fuga 5.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Fuga n.º 5 en re mayor, BWV 850",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 850 - Preludio 5.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Preludio n.º 5 en re mayor, BWV 850",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 851 - Preludio 6.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Preludio n.º 6 en re menor, BWV 851",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 852 - Fuga 7.mp3",
+      "displayName": "Bach — El clave bien temperado, libro I — Fuga n.º 7 en mi bemol mayor, BWV 852",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 894 - Preludio en la menor.mp3",
+      "displayName": "Bach — Preludio en la menor, BWV 894",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 933 - Pequeño preludio 1.mp3",
+      "displayName": "Bach — Pequeño preludio n.º 1 en do mayor, BWV 933",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 936 - Pequeño preludio 4.mp3",
+      "displayName": "Bach — Pequeño preludio n.º 4 en re mayor, BWV 936",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 988 Variaciones Goldberg - Aria (f2).mp3",
+      "displayName": "Bach — Variaciones Goldberg, BWV 988 — Aria — F2",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 988 Variaciones Goldberg - Aria.mp3",
+      "displayName": "Bach — Variaciones Goldberg, BWV 988 — Aria — F1",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 988 Variaciones Goldberg - Variación 1.mp3",
+      "displayName": "Bach — Variaciones Goldberg, BWV 988 — Aria — F3",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach BWV 988 Variaciones Goldberg - Variación 3 canon al unísono.mp3",
+      "displayName": "Bach — Variaciones Goldberg, BWV 988 — Aria — F4",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Harpsichord concerto BMW 1055 mov 1.ogg",
+      "displayName": "Bach — Concierto para clavecín n.º 4 en la mayor, BWV 1055 — I",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Harpsichord concerto BMW 1055 mov 2.ogg",
+      "displayName": "Bach — Concierto para clavecín n.º 4 en la mayor, BWV 1055 — II",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Harpsichord concerto BMW 1055 mov 3.ogg",
+      "displayName": "Bach — Concierto para clavecín n.º 4 en la mayor, BWV 1055 — III",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Harpsichord Concerto BWV 1054.ogg",
+      "displayName": "Bach — Concierto para clavecín n.º 3 en re mayor, BWV 1054",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Harpsichord Concerto No.1 in D Minor BWV 1052.mp3",
+      "displayName": "Bach — Concierto para clavecín n.º 1 en re menor, BWV 1052",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Bach Harpsichord Concerto no.2 BWV 1053.mp3",
+      "displayName": "Bach — Concierto para clavecín n.º 2 en mi mayor, BWV 1053",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/BachBach BWV 784 - Invención 13.mp3",
+      "displayName": "Bach — Invención n.º 13 en la menor, BWV 784",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/UntitledBach BWV 777 - Invención 6.mp3",
+      "displayName": "Bach — Invención n.º 6 en mi mayor, BWV 777",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/UntitledBach BWV 778 - Invención 7.mp3",
+      "displayName": "Bach — Invención n.º 7 en mi menor, BWV 778",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Violin Concerto a minor BWV 1041 (m1).mp3",
+      "displayName": "Bach — Concierto para violín en la menor, BWV 1041 — I. Allegro",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    },
+    {
+      "path": "music/2. Barroco/Violin Concerto a minor BWV 1041 (m2).mp3",
+      "displayName": "Bach — Concierto para violín en la menor, BWV 1041 — II. Andante",
+      "deck": "Música",
+      "contentType": "music",
+      "frontType": "text",
+      "backType": "audio"
+    }
+  ]
+}
