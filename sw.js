@@ -70,15 +70,28 @@ self.addEventListener('fetch', event => {
   }
 
   if (/\/music\/.*\.(?:mp3|ogg)$/i.test(url.pathname)) {
-    event.respondWith(
-      caches.match(event.request).then(cached => {
-        if (cached) return cached;
-        return fetch(event.request).then(response => {
-          if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
-          return response;
-        });
-      })
-    );
+    event.respondWith((async () => {
+      const cached = await caches.match(event.request);
+      if (cached) {
+        const range = event.request.headers.get('range');
+        if (!range) return cached;
+        const buffer = await cached.arrayBuffer();
+        const match = /bytes=(\d+)-(\d*)/i.exec(range);
+        if (!match) return cached;
+        const start = Number(match[1]), end = match[2] ? Number(match[2]) : buffer.byteLength - 1;
+        const safeEnd = Math.min(end, buffer.byteLength - 1);
+        if (start > safeEnd) return new Response(null, {status:416,headers:{'Content-Range':`bytes */${buffer.byteLength}`}});
+        return new Response(buffer.slice(start,safeEnd+1), {status:206,headers:{
+          'Content-Type': cached.headers.get('Content-Type') || (/\.ogg$/i.test(url.pathname)?'audio/ogg':'audio/mpeg'),
+          'Content-Length': String(safeEnd-start+1),
+          'Content-Range': `bytes ${start}-${safeEnd}/${buffer.byteLength}`,
+          'Accept-Ranges':'bytes'
+        }});
+      }
+      const response = await fetch(event.request);
+      if (response.ok && response.status === 200) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+      return response;
+    })());
     return;
   }
 
