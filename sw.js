@@ -1,5 +1,6 @@
 const APP_VERSION = '0.32.0';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
+const AUDIO_CACHE_NAME = 'aprendizaje-audio-v1';
 const APP_SHELL = [
   './',
   './index.html',
@@ -40,7 +41,7 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))
+      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== AUDIO_CACHE_NAME).map(key => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
@@ -71,7 +72,8 @@ self.addEventListener('fetch', event => {
 
   if (/\/music\/.*\.(?:mp3|ogg)$/i.test(url.pathname)) {
     event.respondWith((async () => {
-      const cached = await caches.match(event.request);
+      const audioCache = await caches.open(AUDIO_CACHE_NAME);
+      const cached = await audioCache.match(event.request);
       if (cached) {
         const range = event.request.headers.get('range');
         if (!range) return cached;
@@ -89,7 +91,7 @@ self.addEventListener('fetch', event => {
         }});
       }
       const response = await fetch(event.request);
-      if (response.ok && response.status === 200) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+      if (response.ok && response.status === 200) audioCache.put(event.request, response.clone());
       return response;
     })());
     return;
