@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest-v5.webmanifest" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192-maskable-v5.png" />
 <link rel="apple-touch-icon" href="./icon-192-maskable-v5.png" />
-<title>Aprendizaje — v0.32.0</title>
+<title>Aprendizaje — v0.32.1</title>
 <style>
 @font-face{font-family:ArcadePerfect;src:url('./fonts/Perfect-DOS-VGA-437.ttf') format('truetype');font-display:swap}
 @font-face{font-family:ArcadeM04;src:url('./fonts/m04.TTF') format('truetype');font-display:swap}
@@ -361,41 +361,51 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
 /* Aprendizaje: mazos y audio */
 .deck-modal{background:rgba(13,15,24,.36);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 .deck-modal-card{width:min(92vw,410px);padding:18px;transform:none}
-.deck-modal-card h3{margin:0 0 5px;font-size:19px}
-.deck-modal-card>p{margin:0 0 14px;color:var(--muted);font-size:11px}
+.deck-modal-card h3{margin:0 0 15px;font-size:20px;text-align:center}
 .deck-choice-list{display:grid;gap:9px}
-.deck-choice{width:100%;display:flex;align-items:center;gap:13px;padding:13px 14px;border-radius:15px;background:var(--surface-2);color:var(--ink);text-align:left;cursor:pointer}
+.deck-choice{width:100%;display:flex;align-items:center;gap:14px;padding:14px 15px;border-radius:15px;background:var(--surface-2);color:var(--ink);text-align:left;cursor:pointer}
 .deck-choice:active{transform:scale(.985)}
-.deck-choice-icon{width:38px;height:38px;flex:0 0 38px;border-radius:12px;display:grid;place-items:center;background:var(--surface);color:var(--accent);font-size:19px;font-weight:800;box-shadow:0 3px 10px rgba(20,22,30,.06)}
-.deck-choice strong{display:block;font-size:13px}.deck-choice small{display:block;margin-top:2px;color:var(--muted);font-size:9px}
+.deck-choice-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:grid;place-items:center;background:var(--surface);color:var(--accent);font-size:22px;font-weight:800;box-shadow:0 3px 10px rgba(20,22,30,.06)}
+.deck-choice[data-deck-start="Música"] .deck-choice-icon{font-size:29px}
+.deck-choice strong{display:block;font-size:16px}
 .deck-modal-actions{display:flex;justify-content:flex-end;margin-top:12px}.deck-modal-actions button{padding:9px 12px;border-radius:11px;background:var(--surface-2);color:var(--ink);font-size:11px;font-weight:700}
 .db-deck-filter{display:flex;gap:6px;margin:0 0 12px;padding:4px;background:var(--surface-2);border-radius:13px;overflow-x:auto}
 .db-deck-filter button{flex:1 0 auto;padding:8px 10px;border-radius:10px;background:transparent;color:var(--muted);font-size:10px;font-weight:720;cursor:pointer}
 .db-deck-filter button.active{background:var(--surface);color:var(--ink);box-shadow:0 2px 8px rgba(20,22,30,.08)}
 .deck-badge{display:inline-flex;align-items:center;margin-left:5px;padding:1px 5px;border-radius:999px;background:var(--surface-2);color:var(--muted);font-size:8px;font-weight:700}
 .edit-select{width:100%;height:42px;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:12px;padding:0 11px;outline:none}
-.music-audio-face{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-width:0;width:100%;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.music-note{font-size:56px;line-height:1;color:var(--accent);font-weight:500}
-.music-replay{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-width:132px;padding:11px 15px;border-radius:14px;background:var(--surface-2);color:var(--ink);font-size:12px;font-weight:760;cursor:pointer;box-shadow:inset 0 0 0 1px var(--line)}
-.music-replay:active{transform:scale(.97)}.music-replay.playing{color:var(--accent)}
+.music-audio-face{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;min-width:0;width:100%;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.music-note{font-size:58px;line-height:1;color:var(--accent);font-weight:500}
+.music-controls{display:flex;align-items:center;justify-content:center;gap:12px}
+.music-control{width:62px;height:62px;display:grid;place-items:center;border-radius:16px;background:var(--surface-2);color:var(--ink);cursor:pointer;box-shadow:inset 0 0 0 1px var(--line),0 4px 12px rgba(20,22,30,.06)}
+.music-control:active{transform:scale(.96)}
+.music-control svg{width:28px;height:28px;display:block;fill:currentColor}
+.music-control .music-icon-pause{display:none}.music-control.is-playing .music-icon-play{display:none}.music-control.is-playing .music-icon-pause{display:block}.music-control.is-playing{color:var(--accent)}
 .music-title{display:inline-block;max-width:100%;font-size:.72em;line-height:1.18}
 .music-preview-note{font-family:Inter,ui-sans-serif,sans-serif;font-size:.8em;color:var(--accent)}
+.edit-music-field{display:grid;gap:7px}.edit-music-label{font-size:12px;font-weight:700;color:var(--ink)}
+.edit-music-box{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:154px;padding:15px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2)}
+.edit-music-box .music-note{font-size:42px}.edit-music-box .music-control{width:52px;height:52px;border-radius:14px;background:var(--surface)}
+.edit-music-box .music-control svg{width:24px;height:24px}
+.edit-music-empty{font-size:11px;color:var(--muted);font-weight:650}
 </style>
 </head>
 <body data-theme="violet">
 <div class="app" id="app"></div>
 <div class="toast" id="toast"></div>
 <div class="day-toast" id="dayToast" role="status" aria-live="polite"></div>
-<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.32.0</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
+<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.32.1</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
 <div class="modal hidden" id="editModal" role="dialog" aria-modal="true">
   <div class="modal-card">
     <h3 id="editModalTitle">Editar tarjeta</h3>
     <div class="edit-fields">
       <label class="edit-field">Ítem<div class="text-input edit-textarea" id="editInput" contenteditable="plaintext-only" role="textbox" aria-label="Ítem" aria-autocomplete="none" data-placeholder="" spellcheck="false" data-lpignore="true" data-form-type="other"></div></label>
-      <label class="edit-field">Descripción<div class="text-input edit-textarea" id="editHint" contenteditable="plaintext-only" role="textbox" aria-label="Descripción" aria-autocomplete="none" data-placeholder="Opcional" spellcheck="false" data-lpignore="true" data-form-type="other"></div></label>
+      <label class="edit-field" id="editHintField">Descripción<div class="text-input edit-textarea" id="editHint" contenteditable="plaintext-only" role="textbox" aria-label="Descripción" aria-autocomplete="none" data-placeholder="Opcional" spellcheck="false" data-lpignore="true" data-form-type="other"></div></label>
+      <label class="edit-field">Tipo<select class="edit-select" id="editContentType" aria-label="Tipo"><option value="text">Texto</option><option value="music">Música</option></select></label>
       <label class="edit-field">Mazo<select class="edit-select" id="editDeck" aria-label="Mazo"><option>Música</option><option>Literatura</option><option>Miscelánea</option></select></label>
-      <div class="edit-format-toolbar" aria-label="Formato"><button type="button" class="edit-format-btn" id="editItalic" title="Cursiva" aria-label="Cursiva"><i>I</i></button><button type="button" class="edit-format-btn" id="editSmall" title="Texto pequeño" aria-label="Texto pequeño"><span>A−</span></button><small>Selecciona texto y aplica formato</small></div>
-      <div class="edit-toggle-row"><span>Bidireccional</span><button type="button" class="switch" id="editBidirectional" aria-pressed="false"><i></i></button></div>
+      <div class="edit-music-field hidden" id="editMusicField"><div class="edit-music-label">Música</div><div class="edit-music-box"><div class="music-note" aria-hidden="true">♪</div><div class="music-controls"><button type="button" class="music-control" id="editMusicToggle" aria-label="Reproducir o pausar"><svg class="music-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4L18.2 12 7 4.8Z"/></svg><svg class="music-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 5h4v14h-4V5Zm6.4 0h4v14h-4V5Z"/></svg></button><button type="button" class="music-control" id="editMusicRestart" aria-label="Volver al principio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h2v14H5V5Zm3.6 7L19 5.5v13L8.6 12Z"/></svg></button></div><div class="edit-music-empty hidden" id="editMusicEmpty">Sin audio asignado</div><audio id="editAudio" preload="auto"></audio></div></div>
+      <div class="edit-format-toolbar" id="editFormatToolbar" aria-label="Formato"><button type="button" class="edit-format-btn" id="editItalic" title="Cursiva" aria-label="Cursiva"><i>I</i></button><button type="button" class="edit-format-btn" id="editSmall" title="Texto pequeño" aria-label="Texto pequeño"><span>A−</span></button><small>Selecciona texto y aplica formato</small></div>
+      <div class="edit-toggle-row" id="editBidirectionalRow"><span>Bidireccional</span><button type="button" class="switch" id="editBidirectional" aria-pressed="false"><i></i></button></div>
     </div>
     <div class="modal-actions edit-modal-actions"><button type="button" class="edit-delete-card" id="editDelete" aria-label="Eliminar tarjeta" title="Eliminar tarjeta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13M10 11v6m4-6v6"/></svg></button><button class="cancel" id="editCancel">Cancelar</button><button class="primary" id="editSave">Guardar</button></div>
   </div>
@@ -403,11 +413,10 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
 <div class="modal hidden deck-modal" id="deckModal" role="dialog" aria-modal="true" aria-labelledby="deckModalTitle">
   <div class="modal-card deck-modal-card">
     <h3 id="deckModalTitle">Elegir mazo</h3>
-    <p>Repasa solamente las tarjetas pendientes del mazo seleccionado.</p>
     <div class="deck-choice-list">
-      <button type="button" class="deck-choice" data-deck-start="Música"><span class="deck-choice-icon">♪</span><span><strong>Música</strong><small>Fragmentos de audio y obras musicales</small></span></button>
-      <button type="button" class="deck-choice" data-deck-start="Literatura"><span class="deck-choice-icon">Aa</span><span><strong>Literatura</strong><small>Obras y autores</small></span></button>
-      <button type="button" class="deck-choice" data-deck-start="Miscelánea"><span class="deck-choice-icon">•••</span><span><strong>Miscelánea</strong><small>Conceptos y tarjetas generales</small></span></button>
+      <button type="button" class="deck-choice" data-deck-start="Música"><span class="deck-choice-icon">♪</span><span><strong>Música</strong></span></button>
+      <button type="button" class="deck-choice" data-deck-start="Literatura"><span class="deck-choice-icon">Aa</span><span><strong>Literatura</strong></span></button>
+      <button type="button" class="deck-choice" data-deck-start="Miscelánea"><span class="deck-choice-icon">•••</span><span><strong>Miscelánea</strong></span></button>
     </div>
     <div class="deck-modal-actions"><button type="button" id="deckModalCancel">Cancelar</button></div>
   </div>
@@ -515,6 +524,13 @@ let activeSessionDeck = null;
 let databaseDeckFilter = 'Todos';
 let musicCatalogPromise = null;
 let activeReviewAudio = null;
+let activeEditAudio = null;
+let reviewAudioContext = null;
+const audioOutputNodes = new WeakMap();
+const leadingSilenceOffsets = new Map();
+const leadingSilencePending = new Map();
+let editTypeDraft = 'text';
+let editMusicToTextConfirmed = false;
 
 const SETTINGS_STORAGE_KEY='repaso-settings';
 const HOME_SUMMARY_KEY='repaso-home-summary-v1';
@@ -1046,7 +1062,7 @@ async function go(view, options={}){
   const origin=currentView;
   if(origin==='home'&&view!=='home'&&pokemonIntroAudio){fadePokemonAudio(pokemonIntroAudio,150);pokemonIntroAudio=null;}
   flushUsage();
-  if(origin==='game'&&view!=='game')stopReviewAudio();
+  if(origin==='game'&&view!=='game'&&view!=='settings')stopReviewAudio();
   if((origin==='game'||origin==='scroll')&&view!=='game'&&view!=='scroll'){stopArcadeTimer();stopArcadeMusic();}
   if((origin==='game'||origin==='scroll')&&view==='home')pendingArcadeSummary=finalizeArcadeSession();
   if(view==='settings')settingsReturnView=options.origin||(origin==='game'||origin==='scroll'?origin:'home');
@@ -1062,8 +1078,8 @@ function readCachedHomeSummary(){try{const value=JSON.parse(localStorage.getItem
 function homeMetaText(cards,due){const cardText=cards==null?'…':String(cards),dueText=due==null?'…':String(due);return `${cardText} tarjetas ${settings.pokemonMode?'|':'·'} ${dueText} pendientes`;}
 async function renderHome(loadCounts=true){
   const cached=readCachedHomeSummary();
-  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.32.0</span><div class="header-copy home-title"><h1>Aprendizaje${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" id="globalStartBtn"><div class="mark">${standardIcon}</div><h3>Global</h3></button><button type="button" class="panel launch scroll-mode" id="decksStartBtn"><div class="mark">${scrollModeIcon}</div><h3>Mazos</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
-  bindGo();const globalButton=$('#globalStartBtn'),decksButton=$('#decksStartBtn');safeClick(globalButton,()=>startDeckSession(null,globalButton));safeClick(decksButton,openDeckModal);const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.32.0';if(settings.pokemonMode)stripPokemonUiQuotes(app);
+  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.32.1</span><div class="header-copy home-title"><h1>Aprendizaje${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" id="globalStartBtn"><div class="mark">${standardIcon}</div><h3>Global</h3></button><button type="button" class="panel launch scroll-mode" id="decksStartBtn"><div class="mark">${scrollModeIcon}</div><h3>Mazos</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
+  bindGo();const globalButton=$('#globalStartBtn'),decksButton=$('#decksStartBtn');safeClick(globalButton,()=>startDeckSession(null,globalButton));safeClick(decksButton,openDeckModal);const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.32.1';if(settings.pokemonMode)stripPokemonUiQuotes(app);
   if(!loadCounts)return;
   try{const cards=await getAll(),now=Date.now(),due=cards.filter(card=>{const forward=reviewStateFor(card,'forward');if((forward.dueAt||0)<=now)return true;if(cardBidirectional(card)){const reverse=reviewStateFor(card,'reverse');if((reverse.dueAt||0)<=now)return true;}return false;}).length;localStorage.setItem(HOME_SUMMARY_KEY,JSON.stringify({cards:cards.length,due,updatedAt:now}));if(currentView==='home'){const meta=$('.home-title p');if(meta)meta.textContent=homeMetaText(cards.length,due);}}catch{}
 }
@@ -1071,7 +1087,7 @@ function subhead(title,right=''){ return `<div class="subhead">${btnIcon(chevron
 function safeClick(el,fn){if(!el)return;el.onclick=e=>{e.preventDefault();e.stopPropagation();fn(e);};}
 function bindBack(target='home'){ $$('[data-action="back"]').forEach(b=>safeClick(b,async()=>{if(target==='summary'&&summarySettingsPreview){const summary=summarySettingsPreview;summarySettingsPreview=null;currentView='home';await renderHome();startUsage();requestAnimationFrame(()=>showArcadeSummary(summary));return;}go(target,{preserve:target==='game'||target==='scroll'});})); }
 function bindGo(){ $$('[data-go]').forEach(b=>safeClick(b,()=>(b.dataset.go==='game'||b.dataset.go==='scroll')?startMode(b.dataset.go,b):go(b.dataset.go,{origin:'home'}))); }
-function startDeckSession(deck,button){activeSessionDeck=deck?normalizeDeck(deck):null;currentItem=null;previewItems=[];recentIds=[];undoStack=[];currentFlipped=false;closeDeckModal();return startMode('game',button||$('#globalStartBtn')||$('#decksStartBtn'));}
+function startDeckSession(deck,button){primeReviewAudioOutput();activeSessionDeck=deck?normalizeDeck(deck):null;currentItem=null;previewItems=[];recentIds=[];undoStack=[];currentFlipped=false;closeDeckModal();return startMode('game',button||$('#globalStartBtn')||$('#decksStartBtn'));}
 function openDeckModal(){const modal=$('#deckModal');if(!modal)return;modal.classList.remove('hidden');}
 function closeDeckModal(){$('#deckModal')?.classList.add('hidden');}
 safeClick($('#deckModalCancel'),closeDeckModal);
@@ -1135,8 +1151,20 @@ async function renderDatabase(filter=''){
   search.addEventListener('input',update);search.addEventListener('keydown',e=>{if(e.key==='Enter'&&canAdd){e.preventDefault();addQuery();}});safeClick(add,addQuery);safeClick(paste,pasteList);$$('[data-db-deck]').forEach(button=>safeClick(button,()=>{databaseDeckFilter=button.dataset.dbDeck;$$('[data-db-deck]').forEach(item=>item.classList.toggle('active',item===button));update();}));update();search.focus();search.setSelectionRange(search.value.length,search.value.length);
 }
 function selectEditable(el){if(!el)return;const range=document.createRange();range.selectNodeContents(el);const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);}
-async function openEdit(id,context='database'){const it=await getItem(reviewCardId(id));if(!it)return;if(context==='game')stopReviewAudio();editFormattingTarget='editInput';editingId=it.id;editCreating=false;editSource=structuredCloneSafe(it);editContext=context;editOriginView=currentView;editBidirectionalDraft=cardBidirectional(it);editBidirectionalTouched=false;$('#editModalTitle').textContent='Editar tarjeta';$('#editSave').textContent='Guardar';$('#editInput').textContent=it.text;$('#editHint').textContent=it.hint||'';const deckSelect=$('#editDeck');if(deckSelect)deckSelect.value=cardDeck(it);const toggle=$('#editBidirectional');toggle?.classList.toggle('on',editBidirectionalDraft);toggle?.setAttribute('aria-pressed',String(editBidirectionalDraft));if(toggle){toggle.disabled=isMusicCard(it);toggle.classList.toggle('disabled',isMusicCard(it));}$('#editModal').classList.remove('hidden');setTimeout(()=>{$('#editInput').focus();selectEditable($('#editInput'));},20);}
-function closeEditModal(){const modal=$('#editModal'),restoreGame=editOriginView==='game'&&currentView==='settings';modal.classList.add('hidden');editingId=null;editCreating=false;editSource=null;editBidirectionalTouched=false;if(restoreGame){currentView='game';renderGame(true);}}
+function syncEditContentType(){
+  const music=editTypeDraft==='music',sourceMusic=editSource?.contentType==='music',hasAudio=music&&Boolean(editSource?.audioPath);
+  $('#editHintField')?.classList.toggle('hidden',music);
+  $('#editMusicField')?.classList.toggle('hidden',!music);
+  $('#editBidirectionalRow')?.classList.toggle('hidden',music);
+  const deckSelect=$('#editDeck');if(deckSelect){if(music){deckSelect.value='Música';deckSelect.disabled=true;}else deckSelect.disabled=false;}
+  const typeSelect=$('#editContentType');if(typeSelect)typeSelect.value=editTypeDraft;
+  const empty=$('#editMusicEmpty'),audio=$('#editAudio');empty?.classList.toggle('hidden',hasAudio);
+  if(audio){stopEditAudio(false);if(hasAudio){audio.src=reviewAudioUrl(editSource.audioPath);audio.dataset.audioPath=editSource.audioPath;audio.load();analyzeLeadingSilence(editSource.audioPath).catch(()=>{});}else{audio.removeAttribute('src');audio.dataset.audioPath='';audio.load();}}
+  $('#editMusicToggle')?.toggleAttribute('disabled',!hasAudio);$('#editMusicRestart')?.toggleAttribute('disabled',!hasAudio);
+  if(sourceMusic&&!music)$('#editHint').textContent='';
+}
+async function openEdit(id,context='database'){const it=await getItem(reviewCardId(id));if(!it)return;if(context==='game')stopReviewAudio();editFormattingTarget='editInput';editingId=it.id;editCreating=false;editSource=structuredCloneSafe(it);editContext=context;editOriginView=currentView;editBidirectionalDraft=cardBidirectional(it);editBidirectionalTouched=false;editTypeDraft=it.contentType==='music'?'music':'text';editMusicToTextConfirmed=false;$('#editModalTitle').textContent='Editar tarjeta';$('#editSave').textContent='Guardar';$('#editInput').textContent=it.text;$('#editHint').textContent=it.hint||'';const deckSelect=$('#editDeck');if(deckSelect)deckSelect.value=cardDeck(it);const toggle=$('#editBidirectional');toggle?.classList.toggle('on',editBidirectionalDraft);toggle?.setAttribute('aria-pressed',String(editBidirectionalDraft));syncEditContentType();$('#editModal').classList.remove('hidden');setTimeout(()=>{$('#editInput').focus();selectEditable($('#editInput'));},20);}
+function closeEditModal(){stopEditAudio();const modal=$('#editModal'),restoreGame=editOriginView==='game'&&currentView==='settings';modal.classList.add('hidden');editingId=null;editCreating=false;editSource=null;editBidirectionalTouched=false;editTypeDraft='text';editMusicToTextConfirmed=false;if(restoreGame){currentView='game';renderGame(true);}}
 safeClick($('#editCancel'),closeEditModal);
 safeClick($('#editDelete'),async()=>{
   if(!editingId)return;
@@ -1164,12 +1192,15 @@ safeClick($('#editDelete'),async()=>{
     await renderDatabase();
   }
 });
+$('#editContentType')?.addEventListener('change',e=>{const next=e.target.value==='music'?'music':'text',wasMusic=editSource?.contentType==='music';if(wasMusic&&next==='text'&&!editMusicToTextConfirmed){const ok=confirm('¿Convertir esta tarjeta musical en una tarjeta de texto?\n\nEsto eliminará el audio asociado a la tarjeta y volverá a mostrar un campo de descripción.');if(!ok){e.target.value='music';return;}editMusicToTextConfirmed=true;}editTypeDraft=next;syncEditContentType();});
+safeClick($('#editMusicToggle'),()=>toggleEditAudio());
+safeClick($('#editMusicRestart'),()=>restartEditAudio());
 safeClick($('#editBidirectional'),()=>{editBidirectionalTouched=true;editBidirectionalDraft=!editBidirectionalDraft;const button=$('#editBidirectional');button?.classList.toggle('on',editBidirectionalDraft);button?.setAttribute('aria-pressed',String(editBidirectionalDraft));});
 for(const id of ['editInput','editHint'])$('#'+id)?.addEventListener('focus',()=>{editFormattingTarget=id;});
 function wrapEditMarkup(open,close){const el=$('#'+editFormattingTarget)||$('#editInput');if(!el)return;el.focus();const sel=window.getSelection();if(sel&&sel.rangeCount){const range=sel.getRangeAt(0);if(el.contains(range.commonAncestorContainer)){const selected=range.toString();range.deleteContents();const node=document.createTextNode(open+selected+close);range.insertNode(node);const caret=document.createRange();caret.setStart(node,selected?node.length:open.length);caret.collapse(true);sel.removeAllRanges();sel.addRange(caret);el.dispatchEvent(new Event('input',{bubbles:true}));return;}}const node=document.createTextNode(open+close);el.appendChild(node);const caret=document.createRange();caret.setStart(node,open.length);caret.collapse(true);if(sel){sel.removeAllRanges();sel.addRange(caret);}el.dispatchEvent(new Event('input',{bubbles:true}));}
 for(const [id,open,close] of [['editItalic','<i>','</i>'],['editSmall','<small>','</small>']]){const button=$('#'+id);button?.addEventListener('pointerdown',e=>e.preventDefault());safeClick(button,()=>wrapEditMarkup(open,close));}
 $('#editHint').addEventListener('input',()=>{if(editBidirectionalTouched)return;editBidirectionalDraft=Boolean($('#editHint').textContent.trim());const button=$('#editBidirectional');button?.classList.toggle('on',editBidirectionalDraft);button?.setAttribute('aria-pressed',String(editBidirectionalDraft));});
-safeClick($('#editSave'),async()=>{const v=$('#editInput').textContent.trim();if(!v||!editingId)return;const hint=$('#editHint').textContent.trim().slice(0,300),id=editingId,it=await getItem(id);if(!it)return;it.text=v.slice(0,180);it.hint=hint;it.deck=isMusicCard(it)?'Música':normalizeDeck($('#editDeck')?.value);it.bidirectional=isMusicCard(it)?true:Boolean(hint&&editBidirectionalDraft);if(it.bidirectional&&!it.reverseProgress)it.reverseProgress=freshReviewState(0);it.updatedAt=Date.now();await putItem(it);const direction=currentItem?.direction||'forward';closeEditModal();if(editContext==='game'&&reviewCardId(currentItem)===it.id){currentItem=makeReviewUnit(it,direction);currentFlipped=false;renderGameBody();bindAnswerButtons();}else if(editContext==='scroll'){await renderScroll(true);}else if(currentView==='database')await renderDatabase();});
+safeClick($('#editSave'),async()=>{const v=$('#editInput').textContent.trim();if(!v||!editingId)return;const id=editingId,it=await getItem(id);if(!it)return;const type=editTypeDraft==='music'?'music':'text',wasMusic=it.contentType==='music';it.text=v.slice(0,180);if(type==='music'){it.contentType='music';it.deck='Música';it.hint='';it.frontType='text';it.backType='audio';it.bidirectional=Boolean(it.audioPath);if(it.bidirectional&&!it.reverseProgress)it.reverseProgress=freshReviewState(0);}else{const hint=$('#editHint').textContent.trim().slice(0,300);it.hint=hint;it.deck=normalizeDeck($('#editDeck')?.value);it.bidirectional=Boolean(hint&&editBidirectionalDraft);if(it.bidirectional&&!it.reverseProgress)it.reverseProgress=freshReviewState(0);if(wasMusic){delete it.audioPath;delete it.frontType;delete it.backType;}delete it.contentType;}it.updatedAt=Date.now();await putItem(it);const direction=currentItem?.direction||'forward';closeEditModal();if(editContext==='game'&&reviewCardId(currentItem)===it.id){currentItem=makeReviewUnit(it,direction);currentFlipped=false;renderGameBody();bindAnswerButtons();}else if(editContext==='scroll'){await renderScroll(true);}else if(currentView==='database')await renderDatabase();});
 $('#editInput').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#editSave').click();}else if(e.key==='Escape'){e.preventDefault();$('#editCancel').click();}});
 $('#editHint').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();$('#editCancel').click();}else if(e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();$('#editSave').click();}});
 const editModal=$('#editModal');for(const type of ['pointerdown','pointerup','pointercancel'])editModal.addEventListener(type,e=>e.stopPropagation());editModal.addEventListener('click',e=>{e.stopPropagation();if(e.target===editModal)closeEditModal();});
@@ -1757,12 +1788,24 @@ function descriptionMarkup(value){const scale=descriptionScale(value);return sca
 function reviewFaceKind(item,side='text'){if(item?.contentType!=='music')return'text';return side==='text'?item.promptType:item.answerType;}
 function reviewHasAnswer(item){return item?.contentType==='music'&&item?.audioPath?true:Boolean(String(item?.hint||'').trim());}
 function reviewAudioUrl(path){try{return new URL(String(path||''),document.baseURI).href;}catch{return String(path||'');}}
-function audioFaceMarkup(item,preview=false){if(preview)return '<span class="music-preview-note">♪</span>';const src=reviewAudioUrl(item.audioPath);return `<div class="music-audio-face"><div class="music-note" aria-hidden="true">♪</div><button type="button" class="music-replay" data-music-replay>▶ Reproducir</button><audio class="review-audio" preload="auto" src="${escAttr(src)}"></audio></div>`;}
+const MUSIC_PLAY_ICON='<svg class="music-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.8v14.4L18.2 12 7 4.8Z"/></svg>';
+const MUSIC_PAUSE_ICON='<svg class="music-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.8 5h4v14h-4V5Zm6.4 0h4v14h-4V5Z"/></svg>';
+const MUSIC_RESTART_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h2v14H5V5Zm3.6 7L19 5.5v13L8.6 12Z"/></svg>';
+function audioFaceMarkup(item,preview=false){if(preview)return '<span class="music-preview-note">♪</span>';const src=reviewAudioUrl(item.audioPath);return `<div class="music-audio-face"><div class="music-note" aria-hidden="true">♪</div><div class="music-controls"><button type="button" class="music-control is-playing" data-music-toggle aria-label="Pausar">${MUSIC_PLAY_ICON}${MUSIC_PAUSE_ICON}</button><button type="button" class="music-control" data-music-restart aria-label="Volver al principio">${MUSIC_RESTART_ICON}</button></div><audio class="review-audio" preload="auto" data-audio-path="${escAttr(item.audioPath||'')}" src="${escAttr(src)}"></audio></div>`;}
 function reviewFaceMarkup(item,side='text',preview=false){if(item?.contentType==='music'){if(reviewFaceKind(item,side)==='audio')return audioFaceMarkup(item,preview);return `<span class="music-title">${richText(item.displayName||item.text||item.hint||'')}</span>`;}const value=side==='hint'?item?.hint:item?.text,isDescription=item?.direction==='reverse'?side==='text':side==='hint';return isDescription?descriptionMarkup(value):richText(value);}
-function stopReviewAudio(){if(activeReviewAudio){try{activeReviewAudio.pause();activeReviewAudio.currentTime=0;}catch{}activeReviewAudio=null;}}
-function playReviewAudio(audio,button){if(!audio)return;stopReviewAudio();activeReviewAudio=audio;try{audio.currentTime=0;}catch{}button?.classList.add('playing');audio.play().then(()=>{}).catch(()=>{button?.classList.remove('playing');});audio.onended=()=>{button?.classList.remove('playing');if(activeReviewAudio===audio)activeReviewAudio=null;};}
-function bindCurrentReviewAudio(autoplay=true){const audio=$('#currentCard .review-audio'),button=$('#currentCard [data-music-replay]');if(!audio)return;safeClick(button,()=>playReviewAudio(audio,button));if(autoplay)requestAnimationFrame(()=>{if(document.contains(audio))playReviewAudio(audio,button);});}
-function preloadUpcomingAudio(){const paths=[currentItem,...previewItems].filter(item=>item?.contentType==='music'&&item.audioPath).map(item=>item.audioPath).filter((path,index,array)=>array.indexOf(path)===index).slice(0,6);for(const path of paths)fetch(reviewAudioUrl(path),{cache:'force-cache'}).catch(()=>{});}
+function primeReviewAudioOutput(){try{const Ctx=window.AudioContext||window.webkitAudioContext;if(!Ctx)return null;if(!reviewAudioContext)reviewAudioContext=new Ctx();reviewAudioContext.resume?.().catch(()=>{});return reviewAudioContext;}catch{return null;}}
+function ensureBoostedAudio(audio){if(!audio||audioOutputNodes.has(audio))return;const ctx=primeReviewAudioOutput();if(!ctx)return;try{const source=ctx.createMediaElementSource(audio),gain=ctx.createGain(),limiter=ctx.createDynamicsCompressor();gain.gain.value=2;limiter.threshold.value=-6;limiter.knee.value=4;limiter.ratio.value=12;limiter.attack.value=.003;limiter.release.value=.18;source.connect(gain).connect(limiter).connect(ctx.destination);audioOutputNodes.set(audio,{source,gain,limiter});}catch{}}
+function analyzeLeadingSilence(path){path=String(path||'');if(!path)return Promise.resolve(0);if(leadingSilenceOffsets.has(path))return Promise.resolve(leadingSilenceOffsets.get(path));if(leadingSilencePending.has(path))return leadingSilencePending.get(path);const promise=(async()=>{try{const response=await fetch(reviewAudioUrl(path),{cache:'force-cache'});if(!response.ok)return 0;const buffer=await response.arrayBuffer(),ctx=primeReviewAudioOutput();if(!ctx)return 0;const decoded=await ctx.decodeAudioData(buffer.slice(0)),sampleRate=decoded.sampleRate,maxSamples=Math.min(decoded.length,Math.floor(sampleRate*4)),step=Math.max(128,Math.floor(sampleRate*.012));let first=0;outer:for(let start=0;start<maxSamples;start+=step){const end=Math.min(maxSamples,start+step);for(let ch=0;ch<decoded.numberOfChannels;ch++){const data=decoded.getChannelData(ch);let peak=0;for(let i=start;i<end;i+=4){const value=Math.abs(data[i]);if(value>peak)peak=value;if(peak>.0045){first=Math.max(0,start/sampleRate-.035);break outer;}}}}leadingSilenceOffsets.set(path,first);return first;}catch{leadingSilenceOffsets.set(path,0);return 0;}finally{leadingSilencePending.delete(path);}})();leadingSilencePending.set(path,promise);return promise;}
+function audioStartOffset(audio){return Math.max(0,leadingSilenceOffsets.get(audio?.dataset?.audioPath||'')||0);}
+function syncMusicToggle(audio,button){if(!button)return;const playing=Boolean(audio&&!audio.paused&&!audio.ended);button.classList.toggle('is-playing',playing);button.setAttribute('aria-label',playing?'Pausar':'Reproducir');}
+async function startAudio(audio,button,{restart=false}={}){if(!audio)return false;ensureBoostedAudio(audio);try{if(restart||audio.ended||audio.currentTime<=.03)audio.currentTime=audioStartOffset(audio);await reviewAudioContext?.resume?.().catch(()=>{});await audio.play();syncMusicToggle(audio,button);return true;}catch{syncMusicToggle(audio,button);return false;}}
+function stopReviewAudio(reset=true){if(activeReviewAudio){try{activeReviewAudio.pause();if(reset)activeReviewAudio.currentTime=0;}catch{}activeReviewAudio=null;}}
+function bindAudioTransport(audio,toggle,restart,{autoplay=false,owner='review'}={}){if(!audio)return;ensureBoostedAudio(audio);const sync=()=>syncMusicToggle(audio,toggle);audio.onplay=sync;audio.onpause=sync;audio.onended=()=>{sync();if(owner==='review'&&activeReviewAudio===audio)activeReviewAudio=null;if(owner==='edit'&&activeEditAudio===audio)activeEditAudio=null;};safeClick(toggle,async()=>{if(audio.paused||audio.ended){if(owner==='review'){if(activeReviewAudio&&activeReviewAudio!==audio)stopReviewAudio();activeReviewAudio=audio;}else activeEditAudio=audio;await startAudio(audio,toggle,{restart:audio.ended});}else{audio.pause();sync();}});safeClick(restart,async()=>{if(owner==='review'){if(activeReviewAudio&&activeReviewAudio!==audio)stopReviewAudio();activeReviewAudio=audio;}else activeEditAudio=audio;await startAudio(audio,toggle,{restart:true});});sync();if(autoplay)requestAnimationFrame(async()=>{if(!document.contains(audio))return;if(owner==='review'){if(activeReviewAudio&&activeReviewAudio!==audio)stopReviewAudio();activeReviewAudio=audio;}await startAudio(audio,toggle,{restart:true});});}
+function bindCurrentReviewAudio(autoplay=true){const audio=$('#currentCard .review-audio'),toggle=$('#currentCard [data-music-toggle]'),restart=$('#currentCard [data-music-restart]');if(!audio)return;const path=audio.dataset.audioPath||currentItem?.audioPath||'';analyzeLeadingSilence(path).then(offset=>{if(document.contains(audio)&&!audio.paused&&audio.currentTime<offset)try{audio.currentTime=offset}catch{}});bindAudioTransport(audio,toggle,restart,{autoplay,owner:'review'});}
+function stopEditAudio(reset=true){const audio=$('#editAudio')||activeEditAudio;if(audio){try{audio.pause();if(reset)audio.currentTime=0;}catch{}}activeEditAudio=null;syncMusicToggle(audio,$('#editMusicToggle'));}
+function toggleEditAudio(){const audio=$('#editAudio'),toggle=$('#editMusicToggle');if(!audio?.src)return;if(activeEditAudio&&activeEditAudio!==audio)stopEditAudio();activeEditAudio=audio;if(audio.paused||audio.ended)startAudio(audio,toggle,{restart:audio.ended});else{audio.pause();syncMusicToggle(audio,toggle);}}
+function restartEditAudio(){const audio=$('#editAudio'),toggle=$('#editMusicToggle');if(!audio?.src)return;activeEditAudio=audio;startAudio(audio,toggle,{restart:true});}
+function preloadUpcomingAudio(){const paths=[currentItem,...previewItems].filter(item=>item?.contentType==='music'&&item.audioPath).map(item=>item.audioPath).filter((path,index,array)=>array.indexOf(path)===index).slice(0,6);for(const path of paths){fetch(reviewAudioUrl(path),{cache:'force-cache'}).catch(()=>{});analyzeLeadingSilence(path).catch(()=>{});}}
 function escAttr(s){return esc(s).replace(/`/g,'&#096;')}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
 function structuredCloneSafe(value){return typeof structuredClone==='function'?structuredClone(value):JSON.parse(JSON.stringify(value));}
