@@ -1,9 +1,10 @@
-const APP_VERSION = '0.31.5';
+const APP_VERSION = '0.32.0';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const APP_SHELL = [
   './',
   './index.html',
   './manifest-v5.webmanifest',
+  './music-catalog.json',
   './demo-data.js',
   './fonts/Perfect-DOS-VGA-437.ttf',
   './fonts/m04.TTF',
@@ -63,6 +64,19 @@ self.addEventListener('fetch', event => {
             return response;
           })
           .catch(() => caches.match('./'));
+      })
+    );
+    return;
+  }
+
+  if (/\/music\/.*\.(?:mp3|ogg)$/i.test(url.pathname)) {
+    event.respondWith(
+      caches.match(event.request).then(cached => {
+        if (cached) return cached;
+        return fetch(event.request).then(response => {
+          if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
+          return response;
+        });
       })
     );
     return;
