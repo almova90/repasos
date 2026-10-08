@@ -11,7 +11,7 @@
 <link rel="manifest" href="./manifest-v5.webmanifest" />
 <link rel="icon" type="image/png" sizes="192x192" href="./icon-192-maskable-v5.png" />
 <link rel="apple-touch-icon" href="./icon-192-maskable-v5.png" />
-<title>Aprendizaje — v0.33.0</title>
+<title>Aprendizaje — v0.33.1</title>
 <style>
 @font-face{font-family:ArcadePerfect;src:url('./fonts/Perfect-DOS-VGA-437.ttf') format('truetype');font-display:swap}
 @font-face{font-family:ArcadeM04;src:url('./fonts/m04.TTF') format('truetype');font-display:swap}
@@ -394,7 +394,7 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
 <div class="app" id="app"></div>
 <div class="toast" id="toast"></div>
 <div class="day-toast" id="dayToast" role="status" aria-live="polite"></div>
-<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.33.0</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
+<div class="update-banner" id="updateBanner" role="status" aria-live="polite"><button type="button" id="updateNow"><span class="update-idle"><strong>Actualizar</strong><small>v0.33.1</small></span><span class="update-busy"><strong>Actualizando…</strong></span></button></div>
 <div class="modal hidden" id="editModal" role="dialog" aria-modal="true">
   <div class="modal-card">
     <h3 id="editModalTitle">Editar tarjeta</h3>
@@ -1079,8 +1079,8 @@ function readCachedHomeSummary(){try{const value=JSON.parse(localStorage.getItem
 function homeMetaText(cards,due){const cardText=cards==null?'…':String(cards),dueText=due==null?'…':String(due);return `${cardText} tarjetas ${settings.pokemonMode?'|':'·'} ${dueText} pendientes`;}
 async function renderHome(loadCounts=true){
   const cached=readCachedHomeSummary();
-  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.33.0</span><div class="header-copy home-title"><h1>Aprendizaje${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" id="globalStartBtn"><div class="mark">${standardIcon}</div><h3>Global</h3></button><button type="button" class="panel launch scroll-mode" id="decksStartBtn"><div class="mark">${scrollModeIcon}</div><h3>Mazos</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
-  bindGo();const globalButton=$('#globalStartBtn'),decksButton=$('#decksStartBtn');safeClick(globalButton,()=>startDeckSession(null,globalButton));safeClick(decksButton,openDeckModal);const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.33.0';if(settings.pokemonMode)stripPokemonUiQuotes(app);
+  app.innerHTML=`<div class="view"><div class="shell"><header class="header home-header"><span class="app-version">v0.33.1</span><div class="header-copy home-title"><h1>Aprendizaje${settings.demoMode?'<span class="demo-badge">DEMO</span>':''}</h1><p>${homeMetaText(cached.cards,cached.due)}</p></div>${arcadeHomeMarkup(pendingArcadeSummary?.globalXpBefore)}</header><main class="content home-content"><div class="launch-grid"><button type="button" class="panel launch standard" id="globalStartBtn"><div class="mark">${standardIcon}</div><h3>Global</h3></button><button type="button" class="panel launch scroll-mode" id="decksStartBtn"><div class="mark">${scrollModeIcon}</div><h3>Mazos</h3></button></div><section class="home-library ${settings.arcadeMode?'arcade-visible':''}"><div class="panel menu-list"><button type="button" class="menu-row" data-go="database"><span class="mini database-mini">Aa</span><span class="grow"><strong>Base de datos</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="stats"><span class="mini">${chartIcon}</span><span class="grow"><strong>Estadísticas</strong></span><span class="chev">›</span></button><button type="button" class="menu-row" data-go="settings"><span class="mini settings-mini">${homeMenuIcon}</span><span class="grow"><strong>Ajustes</strong></span><span class="chev">›</span></button></div></section></main></div></div>`;
+  bindGo();const globalButton=$('#globalStartBtn'),decksButton=$('#decksStartBtn');safeClick(globalButton,()=>startDeckSession(null,globalButton));safeClick(decksButton,openDeckModal);const versionLabel=$('.app-version');if(versionLabel)versionLabel.textContent='v0.33.1';if(settings.pokemonMode)stripPokemonUiQuotes(app);
   if(!loadCounts)return;
   try{const cards=await getAll(),now=Date.now(),due=cards.filter(card=>{const forward=reviewStateFor(card,'forward');if((forward.dueAt||0)<=now)return true;if(cardBidirectional(card)){const reverse=reviewStateFor(card,'reverse');if((reverse.dueAt||0)<=now)return true;}return false;}).length;localStorage.setItem(HOME_SUMMARY_KEY,JSON.stringify({cards:cards.length,due,updatedAt:now}));if(currentView==='home'){const meta=$('.home-title p');if(meta)meta.textContent=homeMetaText(cards.length,due);}}catch{}
 }
@@ -1690,7 +1690,7 @@ renderSettings=async function(){
 const DRIVE_DATABASE_CONFIG=Object.freeze({
   folderId:'1Wx128WrFo2JS-M0aTgglZrBq5s5Fohoh',
   fileName:'repasos-base-de-datos.json',
-  scope:'https://www.googleapis.com/auth/drive'
+  scope:'https://www.googleapis.com/auth/drive.file'
 });
 const DRIVE_DATABASE_CLIENT_ID_KEY='repasos-drive-oauth-client-id-v1';
 const DRIVE_DATABASE_STATE_KEY='repasos-drive-database-state-v1';
