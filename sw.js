@@ -1,4 +1,4 @@
-const APP_VERSION = '0.33.3';
+const APP_VERSION = '0.33.4';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const AUDIO_CACHE_NAME = 'aprendizaje-audio-v1';
 const APP_SHELL = [
