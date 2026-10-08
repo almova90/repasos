@@ -368,7 +368,7 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
 .deck-choice{width:100%;display:flex;align-items:center;gap:14px;padding:14px 15px;border-radius:15px;background:var(--surface-2);color:var(--ink);text-align:left;cursor:pointer}
 .deck-choice:active{transform:scale(.985)}
 .deck-choice-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;display:grid;place-items:center;background:var(--surface);color:var(--accent);font-size:22px;font-weight:800;box-shadow:0 3px 10px rgba(20,22,30,.06)}
-.deck-choice[data-deck-start="Música"] .deck-choice-icon{font-size:32px;line-height:1;transform:translateY(-2px)}
+.deck-choice[data-deck-start="Música"] .deck-choice-icon{font-size:32px;line-height:1}.deck-music-glyph{display:block;line-height:1;transform:translateY(-2px)}
 .deck-choice strong{display:block;font-size:16px}
 .deck-modal-actions{display:flex;justify-content:flex-end;margin-top:12px}.deck-modal-actions button{padding:9px 12px;border-radius:11px;background:var(--surface-2);color:var(--ink);font-size:11px;font-weight:700}
 .db-deck-filter{display:flex;gap:6px;margin:0 0 12px;padding:4px;background:var(--surface-2);border-radius:13px;overflow-x:auto}
@@ -416,7 +416,7 @@ body[data-pokemon="on"] .game-empty h2{font-size:var(--pokemon-empty-title-size)
   <div class="modal-card deck-modal-card">
     <h3 id="deckModalTitle">Elegir mazo</h3>
     <div class="deck-choice-list">
-      <button type="button" class="deck-choice" data-deck-start="Música"><span class="deck-choice-icon">♪</span><span><strong>Música</strong></span></button>
+      <button type="button" class="deck-choice" data-deck-start="Música"><span class="deck-choice-icon"><span class="deck-music-glyph">♪</span></span><span><strong>Música</strong></span></button>
       <button type="button" class="deck-choice" data-deck-start="Literatura"><span class="deck-choice-icon">Aa</span><span><strong>Literatura</strong></span></button>
       <button type="button" class="deck-choice" data-deck-start="Miscelánea"><span class="deck-choice-icon">•••</span><span><strong>Miscelánea</strong></span></button>
     </div>
