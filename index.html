@@ -1784,7 +1784,7 @@ async function updateDriveDatabaseFile(fileId,payload,token){
   const response=await driveApiFetch(`https://www.googleapis.com/upload/drive/v3/files/${encodeURIComponent(fileId)}?uploadType=media&supportsAllDrives=true&fields=id,name,modifiedTime,version,size`,{method:'PATCH',headers:{'Content-Type':'application/json; charset=UTF-8'},body:JSON.stringify(payload,null,2)},token);
   return response.json();
 }
-async function currentDriveDatabasePayload(){return{version:14,exportedAt:new Date().toISOString(),kind:'repasos-drive-database',items:await getAll()};}
+async function currentDriveDatabasePayload(){return{version:14,exportedAt:new Date().toISOString(),kind:'repasos-drive-database',items:await getAll(),deletedIds:[]};}
 function driveStableValue(value){
   if(Array.isArray(value))return value.map(driveStableValue);
   if(value&&typeof value==='object'){const out={};for(const key of Object.keys(value).sort())out[key]=driveStableValue(value[key]);return out;}
@@ -1797,21 +1797,23 @@ function driveCardContent(card){
   return driveStableValue(out);
 }
 function driveCardSignature(card){return JSON.stringify(driveCardContent(card));}
-function analyzeDriveDatabaseChanges(localCards,remoteCards){
-  const localById=new Map(localCards.map(card=>[card.id,card])),remoteIds=new Set(),newCards=[],changedCards=[];
+function analyzeDriveDatabaseChanges(localCards,remoteCards,deletedIds=[]){
+  const localById=new Map(localCards.map(card=>[card.id,card])),deletedSet=new Set((Array.isArray(deletedIds)?deletedIds:[]).filter(id=>typeof id==='string')),newCards=[],changedCards=[];
   for(const remote of remoteCards){
     if(!remote||typeof remote!=='object'||typeof remote.id!=='string'||typeof remote.text!=='string')throw new Error('El JSON de Drive contiene una tarjeta con formato no válido.');
-    remoteIds.add(remote.id);const local=localById.get(remote.id);
+    if(deletedSet.has(remote.id))continue;
+    const local=localById.get(remote.id);
     if(!local)newCards.push(remote);else if(driveCardSignature(local)!==driveCardSignature(remote))changedCards.push(remote);
   }
-  const deletedCards=localCards.filter(local=>!remoteIds.has(local.id));
-  return{newCards,changedCards,deletedCards};
+  const deletedCards=[...deletedSet].map(id=>localById.get(id)).filter(Boolean);
+  return{newCards,changedCards,deletedCards,deletedIds:deletedSet};
 }
-function mergeDriveDatabaseCards(localCards,remoteCards){
-  const remoteById=new Map(remoteCards.map(card=>[card.id,card])),merged=[];
+function mergeDriveDatabaseCards(localCards,remoteCards,deletedIds=[]){
+  const deletedSet=new Set((Array.isArray(deletedIds)?deletedIds:[]).filter(id=>typeof id==='string')),remoteById=new Map(remoteCards.filter(card=>!deletedSet.has(card.id)).map(card=>[card.id,card])),merged=[];
   for(const local of localCards){
+    if(deletedSet.has(local.id))continue;
     const remote=remoteById.get(local.id);
-    if(!remote)continue;
+    if(!remote){merged.push(local);continue;}
     const content=driveCardContent(remote),next={...local,...content,id:local.id,createdAt:local.createdAt,updatedAt:Date.now()};
     for(const field of REVIEW_STATE_FIELDS)next[field]=local[field];
     next.reverseProgress=local.reverseProgress??null;
@@ -1848,11 +1850,11 @@ async function checkDriveDatabaseUpdates(){
       alert(`No había todavía una copia de la base de datos en Drive.\n\nSe ha creado «${DRIVE_DATABASE_CONFIG.fileName}» en la carpeta Aprendizaje.\n\nNo hay nuevas actualizaciones disponibles.`);
       return;
     }
-    const remote=await readDriveDatabaseFile(file.id,token),local=await getAll(),changes=analyzeDriveDatabaseChanges(local,remote.items);
+    const remote=await readDriveDatabaseFile(file.id,token),local=await getAll(),changes=analyzeDriveDatabaseChanges(local,remote.items,remote.deletedIds);
     if(!changes.newCards.length&&!changes.changedCards.length&&!changes.deletedCards.length){writeDriveDatabaseState(file);alert('No hay nuevas actualizaciones disponibles.');return;}
     const summary=driveChangeSummary(changes),accepted=confirm(`Hay una nueva versión disponible.\n\nSe aplicarán estos cambios:\n\n${summary.split('\n').map(line=>'• '+line).join('\n')}\n\n¿Quieres actualizar la base de datos?`);
     if(!accepted)return;
-    const merged=mergeDriveDatabaseCards(local,remote.items);await replaceItems(merged);resetReviewState();localStorage.removeItem(HOME_SUMMARY_KEY);
+    const merged=mergeDriveDatabaseCards(local,remote.items,remote.deletedIds);await replaceItems(merged);resetReviewState();localStorage.removeItem(HOME_SUMMARY_KEY);
     let savedFile=file;
     try{savedFile=await updateDriveDatabaseFile(file.id,await currentDriveDatabasePayload(),token);}catch(error){console.warn('La base local se actualizó, pero no se pudo refrescar la copia de Drive:',error);}
     writeDriveDatabaseState(savedFile);alert(`Base de datos actualizada.\n\n${summary}`);await renderSettings();
