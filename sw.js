@@ -1,4 +1,4 @@
-const APP_VERSION = '0.34.1';
+const APP_VERSION = '0.34.2';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const AUDIO_CACHE_NAME = 'aprendizaje-audio-v1';
 const APP_SHELL = [
@@ -56,17 +56,19 @@ self.addEventListener('fetch', event => {
   if (url.origin !== self.location.origin) return;
 
   if (event.request.mode === 'navigate') {
-    event.respondWith(
-      caches.match('./index.html').then(cached => {
-        if (cached) return cached;
-        return fetch(event.request)
-          .then(response => {
-            if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put('./index.html', response.clone()));
-            return response;
-          })
-          .catch(() => caches.match('./'));
-      })
-    );
+    event.respondWith((async () => {
+      const activeCache=await caches.open(CACHE_NAME);
+      try {
+        const response=await fetch(event.request,{cache:'no-store'});
+        if(response.ok){
+          await activeCache.put('./index.html',response.clone());
+          return response;
+        }
+        return (await activeCache.match('./index.html')) || response;
+      } catch(error) {
+        return (await activeCache.match('./index.html')) || (await activeCache.match('./')) || Response.error();
+      }
+    })());
     return;
   }
 
@@ -97,13 +99,13 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      const fresh = fetch(event.request).then(response => {
-        if (response.ok) caches.open(CACHE_NAME).then(cache => cache.put(event.request, response.clone()));
-        return response;
-      }).catch(() => cached);
-      return cached || fresh;
-    })
-  );
+  event.respondWith((async () => {
+    const activeCache=await caches.open(CACHE_NAME);
+    const cached=await activeCache.match(event.request);
+    const fresh=fetch(event.request).then(response=>{
+      if(response.ok)activeCache.put(event.request,response.clone()).catch(()=>{});
+      return response;
+    }).catch(()=>cached || Response.error());
+    return cached || fresh;
+  })());
 });
