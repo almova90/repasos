@@ -107,4 +107,4 @@ async function readSentinel(page) {
   assert.deepEqual(updateErrors,[]);assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('repaso-usage'))),{'2026-01-01':{yes:7,nope:2,seconds:123}});
   await context.close();console.log('PASS broken-version update, recovery, offline and exact IndexedDB/localStorage preservation');
  } finally {clearTimeout(deadline);await browser.close();await new Promise(r=>server.close(r))}
-})().catch(e=>{console.error(e);server.close();process.exitCode=1});
+})().catch(e=>{console.error(e);console.error('::error::'+String(e.stack||e).replaceAll('%','%25').replaceAll('\r','%0D').replaceAll('\n','%0A'));server.close();process.exitCode=1});
