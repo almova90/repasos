@@ -1,4 +1,4 @@
-const APP_VERSION = '0.34.2';
+const APP_VERSION = '0.34.3';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const AUDIO_CACHE_NAME = 'aprendizaje-audio-v1';
 const APP_SHELL = [
@@ -35,15 +35,30 @@ const APP_SHELL = [
 ];
 
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
+  event.waitUntil((async () => {
+    const cache=await caches.open(CACHE_NAME);
+    // First cache the essential HTML; optional media must not prevent recovery.
+    await cache.add('./index.html');
+    await Promise.allSettled(APP_SHELL.filter(path=>path!=='./index.html').map(path=>cache.add(path)));
+    // Emergency recovery: activate without depending on a button in broken app JS.
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME && key !== AUDIO_CACHE_NAME).map(key => caches.delete(key))))
-      .then(() => self.clients.claim())
-  );
+  event.waitUntil((async () => {
+    const keys=await caches.keys();
+    await Promise.all(keys.filter(key=>key!==CACHE_NAME&&key!==AUDIO_CACHE_NAME).map(key=>caches.delete(key)));
+    await self.clients.claim();
+    // Restore open standalone and Chrome app windows whose previous JS could not reload.
+    const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+    const home=new URL('./',self.registration.scope).pathname;
+    const index=new URL('./index.html',self.registration.scope).pathname;
+    await Promise.allSettled(clients.map(client=>{
+      const url=new URL(client.url);
+      return (url.pathname===home||url.pathname===index)?client.navigate(client.url):Promise.resolve();
+    }));
+  })());
 });
 
 self.addEventListener('message', event => {
@@ -58,15 +73,17 @@ self.addEventListener('fetch', event => {
   if (event.request.mode === 'navigate') {
     event.respondWith((async () => {
       const activeCache=await caches.open(CACHE_NAME);
+      const homePath=new URL('./',self.registration.scope).pathname;
+      const indexPath=new URL('./index.html',self.registration.scope).pathname;
+      const isHome=url.pathname===homePath||url.pathname===indexPath;
       try {
         const response=await fetch(event.request,{cache:'no-store'});
-        if(response.ok){
-          await activeCache.put('./index.html',response.clone());
-          return response;
-        }
-        return (await activeCache.match('./index.html')) || response;
-      } catch(error) {
-        return (await activeCache.match('./index.html')) || (await activeCache.match('./')) || Response.error();
+        // Never overwrite the app entry point with reparar.html or another document.
+        if(response.ok&&isHome)await activeCache.put('./index.html',response.clone());
+        return response;
+      }catch(error){
+        if(isHome)return (await activeCache.match('./index.html'))||(await activeCache.match('./'))||Response.error();
+        return Response.error();
       }
     })());
     return;
