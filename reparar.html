@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#202c48">
+<title>Recuperar Aprendizaje</title>
+<style>
+:root{color-scheme:dark}*{box-sizing:border-box}body{min-height:100dvh;margin:0;background:#151c2b;color:#f6f8ff;font:16px/1.55 system-ui,-apple-system,sans-serif;display:grid;place-items:center;padding:20px}
+main{max-width:440px;width:100%;background:#202a3b;border:1px solid #34435d;border-radius:20px;padding:26px}
+h1{font-size:23px;margin:0 0 10px}p{margin:0 0 17px;color:#cad5e9}button{display:block;width:100%;border:0;border-radius:12px;padding:15px;background:#89a9ff;color:#111c35;font-weight:750;font-size:16px;cursor:pointer}button:disabled{opacity:.55}#status{margin-top:16px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere;color:#d5e0fa}.small{font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<h1>Recuperar Aprendizaje</h1>
+<p>Esta página funciona independientemente de la aplicación. Repara la instalación web y vuelve a cargar la versión actualizada.</p>
+<button id="repair" type="button">Reparar y abrir Aprendizaje</button>
+<div id="status" role="status" aria-live="polite"></div>
+<p class="small" style="margin-top:20px">La reparación limpia únicamente archivos temporales de la aplicación. No elimina las tarjetas, estadísticas, ni los datos guardados en IndexedDB o localStorage.</p>
+</main>
+<script>
+(function(){
+  const button=document.getElementById('repair'),status=document.getElementById('status');
+  const say=(s)=>{status.textContent=s;};
+  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+  button.addEventListener('click',async()=>{
+    button.disabled=true;
+    try{
+      if(!('caches' in window)||!('serviceWorker' in navigator))throw Error('Este navegador no admite la reparación automática.');
+      say('Comprobando la versión publicada…');
+      const versionRequest=await fetch('./version.json?rescate='+Date.now(),{cache:'no-store'});
+      if(!versionRequest.ok)throw Error('No se ha podido consultar la versión publicada.');
+      const version=(await versionRequest.json()).version;
+      if(!/^\d+\.\d+\.\d+$/.test(version))throw Error('Versión remota no válida.');
+      say('Preparando actualización a v'+version+'…');
+      let registration=await navigator.serviceWorker.getRegistration('./');
+      if(!registration)registration=await navigator.serviceWorker.register('./sw.js',{scope:'./',updateViaCache:'none'});
+      await registration.update();
+      if(registration.waiting)registration.waiting.postMessage({type:'SKIP_WAITING'});
+      if(registration.installing){
+        const worker=registration.installing;
+        worker.addEventListener('statechange',()=>{if(worker.state==='installed'&&registration.waiting)registration.waiting.postMessage({type:'SKIP_WAITING'});});
+      }
+      say('Eliminando solo las cachés antiguas de la aplicación…');
+      const cacheNames=await caches.keys();
+      await Promise.all(cacheNames.filter(name=>name.startsWith('repasos-')&&name!=='repasos-'+version).map(name=>caches.delete(name)));
+      // Refresh the current HTML from the network, never delete application databases.
+      const response=await fetch('./index.html?recuperacion='+Date.now(),{cache:'no-store'});
+      if(!response.ok)throw Error('No se ha podido recuperar el HTML de la aplicación.');
+      const freshHTML=await response.text();
+      if(!freshHTML.includes('<div class="app" id="app"></div>'))throw Error('El servidor no ha devuelto el HTML esperado.');
+      const activeCache=await caches.open('repasos-'+version);
+      await activeCache.put('./index.html',new Response(freshHTML,{headers:{'Content-Type':'text/html;charset=utf-8'}}));
+      say('Recuperación completada. Abriendo Aprendizaje…');
+      await delay(600);
+      window.location.replace('./index.html?recuperacion='+Date.now());
+    }catch(error){
+      say('No ha podido completarse la recuperación: '+String(error&&error.message||error)+'\nComprueba que Chrome tiene conexión a Internet y vuelve a intentarlo.');
+      button.disabled=false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
