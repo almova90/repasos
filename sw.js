@@ -1,4 +1,4 @@
-const APP_VERSION = '0.34.3';
+const APP_VERSION = '0.34.4';
 const CACHE_NAME = `repasos-${APP_VERSION}`;
 const AUDIO_CACHE_NAME = 'aprendizaje-audio-v1';
 const APP_SHELL = [
@@ -54,10 +54,12 @@ self.addEventListener('activate', event => {
     const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});
     const home=new URL('./',self.registration.scope).pathname;
     const index=new URL('./index.html',self.registration.scope).pathname;
-    await Promise.allSettled(clients.map(client=>{
+    // Do not await navigation inside activation: its fetch may wait for this
+    // activation event to finish, deadlocking the recovery reload.
+    for(const client of clients){
       const url=new URL(client.url);
-      return (url.pathname===home||url.pathname===index)?client.navigate(client.url):Promise.resolve();
-    }));
+      if(url.pathname===home||url.pathname===index)client.navigate(client.url).catch(()=>{});
+    }
   })());
 });
 

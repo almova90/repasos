@@ -1,0 +1,6 @@
+{
+  "name": "repasos-checks",
+  "private": true,
+  "scripts": {"test": "node tests/browser.cjs"},
+  "devDependencies": {"playwright-core": "1.56.1"}
+}
