@@ -60,13 +60,65 @@ async function checkDeckAppearance(page, touch) {
   assert.equal(await page.locator('#deckModalConfirm').isEnabled(),false);
   await press('#deckModalCancel');
 }
+async function checkReviewRegressions(page, touch) {
+  const pressCard = () => touch ? page.locator('#currentCard .word').tap() : page.locator('#currentCard .word').click();
+  for (const display of ['flags','text']) for (const direction of ['forward','reverse']) {
+    await page.evaluate(({display,direction})=>{
+      settings.languageDisplay=display;
+      currentItem=makeReviewUnit({...newItem('あ','a'),languageFront:'ja',languageBack:'es'},direction);
+      currentFlipped=false;renderGameBody();bindAnswerButtons();
+    },{display,direction});
+    const front='🇯🇵 → 🇪🇸';
+    const back='🇪🇸 → 🇯🇵';
+    // Text marker names come from the existing language-marker table.
+    const route=await page.locator('#currentCard .language-route').innerText();
+    if(display==='flags')assert.equal(route,direction==='forward'?front:back);
+    await pressCard();await page.waitForFunction(()=>currentFlipped && !document.querySelector('#currentCard').dataset.flipping);
+    assert.equal(await page.locator('#currentCard .language-route').innerText(),route.split(' → ').reverse().join(' → '));
+    await pressCard();await page.waitForFunction(()=>!currentFlipped && !document.querySelector('#currentCard').dataset.flipping);
+    assert.equal(await page.locator('#currentCard .language-route').innerText(),route);
+  }
+  for (const direction of ['forward','reverse']) {
+    await page.evaluate(async direction=>{
+      const catalog=await loadMusicCatalog();currentItem=makeReviewUnit(musicCatalogCard(catalog[0]),direction);
+      currentFlipped=false;renderGameBody();bindAnswerButtons();
+    },direction);
+    assert.equal(await page.locator('#currentCard audio').count(),direction==='reverse'?1:0);
+    await pressCard();await page.waitForFunction(()=>currentFlipped && !document.querySelector('#currentCard').dataset.flipping);
+    assert.equal(await page.locator('#currentCard audio').count(),direction==='forward'?1:0);
+    await pressCard();await page.waitForFunction(()=>!currentFlipped && !document.querySelector('#currentCard').dataset.flipping);
+    assert.equal(await page.locator('#currentCard audio').count(),direction==='reverse'?1:0);
+  }
+  await page.evaluate(async()=>{await go('scroll');});
+  const scrollCard=page.locator('.scroll-card.active');
+  await scrollCard.evaluate(el=>{el.reviewUnit=makeReviewUnit({...newItem('あ','a'),languageFront:'ja',languageBack:'es'});setScrollCardFace(el,false);});
+  const route=await scrollCard.locator('.language-route').innerText();
+  await scrollCard.click();await page.waitForFunction(()=>document.querySelector('.scroll-card.active')?.dataset.flipped==='1' && !document.querySelector('.scroll-card.active').dataset.flipping);
+  assert.equal(await scrollCard.locator('.language-route').innerText(),route.split(' → ').reverse().join(' → '));
+  for(const direction of ['forward','reverse']) {
+    await scrollCard.evaluate(async(el,direction)=>{const catalog=await loadMusicCatalog();el.reviewUnit=makeReviewUnit(musicCatalogCard(catalog[0]),direction);setScrollCardFace(el,false);},direction);
+    await scrollCard.click({position:{x:10,y:10}});await page.waitForFunction(()=>document.querySelector('.scroll-card.active')?.dataset.flipped==='1' && !document.querySelector('.scroll-card.active').dataset.flipping);
+    assert.equal(await scrollCard.locator('audio').count(),direction==='forward'?1:0);
+  }
+  await page.evaluate(async()=>{stopReviewAudio();await go('game');});
+  for(const extra of [false,true]) {
+    await page.evaluate(extra=>{settings.summarySettingsButton=extra;showArcadeSummary({sessionLevel:1,gained:0,levelBonus:0,correct:1,answered:1,bestCombo:7,accuracy:100,duration:1,insights:[]});},extra);
+    assert.equal(await page.locator('.arcade-summary-stat strong').nth(1).innerText(),'x7');
+    const actions=await page.locator('.arcade-summary-actions button').evaluateAll(buttons=>buttons.map(b=>({id:b.id,x:b.getBoundingClientRect().x,color:getComputedStyle(b).backgroundColor})));
+    assert.equal(actions[0].id,'arcadeSummaryContinue');assert.equal(actions.at(-1).id,'arcadeSummaryFinish');
+    assert(actions[0].x<actions.at(-1).x);assert.equal(actions.at(-1).color,'rgb(66, 241, 120)');
+    assert(actions.slice(0,-1).every(b=>b.color!==actions.at(-1).color));
+    await page.locator('#arcadeSummaryContinue').click();await page.waitForSelector('#currentCard');
+  }
+  await page.evaluate(()=>{stopReviewAudio();settings.summarySettingsButton=false;});
+}
 async function readSentinel(page) {
   return page.evaluate(async()=>{const db=await new Promise((resolve,reject)=>{const r=indexedDB.open('repaso-slick-db',1);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)});try{return await new Promise((resolve,reject)=>{const r=db.transaction('items').objectStore('items').get('test-preserved');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}finally{db.close()}});
 }
 (async()=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const url=`http://127.0.0.1:${server.address().port}`;
- const deadline=setTimeout(()=>{console.error('Browser suite exceeded 90 seconds');process.exit(1)},90000);
+ const deadline=setTimeout(()=>{console.error('Browser suite exceeded 150 seconds');process.exit(1)},150000);
  const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(fs.existsSync('/usr/bin/chromium')?'/usr/bin/chromium':chromium.executablePath()),args:['--no-sandbox','--autoplay-policy=no-user-gesture-required']});
  try {
   for (const {arcade,touch} of [{arcade:false,touch:false},{arcade:true,touch:false},{arcade:false,touch:true}]) {
@@ -90,6 +142,7 @@ async function readSentinel(page) {
    await page.locator('#decksStartBtn').click();for(const deck of ['Literatura','Sistemas de escritura','Música'])await page.locator(`[data-deck-start="${deck}"]`).click();await page.locator('#deckModalConfirm').click();await page.waitForSelector('#currentCard');
    if(!await page.locator('#currentCard audio').count())await page.locator('#currentCard').click();
    await page.waitForFunction(()=>{const a=document.querySelector('#currentCard audio');return a && a.currentTime>0 && !a.paused});
+   await checkReviewRegressions(page,touch);
    await context.setOffline(true);await page.reload();await boot(page);assert.deepEqual(errors,[]);await context.close();console.log(`PASS UI, multiple decks, flip, settings, music, offline (${arcade?'Arcade':touch?'mobile touch':'normal'})`);
   }
   // Reproduce broken 0.34.3, update its SW without the broken UI, retain IndexedDB.
